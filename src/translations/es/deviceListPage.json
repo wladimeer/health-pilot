@@ -1,0 +1,29 @@
+{
+  "title": "Dispositivos",
+  "description": "El Módulo de Dispositivos es una solución integral diseñada para gestionar de manera eficiente y centralizada todos los aspectos relacionados con los dispositivos en un sistema. Desde la incorporación de nuevos dispositivos hasta la monitorización y mantenimiento de los existentes, este módulo ofrece un conjunto completo de herramientas para simplificar las operaciones diarias.",
+  "redirect": "Ir a Dispositivos",
+  "breadcrumb": {
+    "home": "Administración",
+    "current": "Dispositivos"
+  },
+  "table": {
+    "columns": {
+      "deviceId": "ID Dispositivo",
+      "terminalId": "ID Terminal",
+      "deviceName": "Nombre Dispositivo",
+      "deviceState": "Estado Dispositivo",
+      "deviceCreatedDate": "Fecha Creación",
+      "deviceUpdatedDate": "Fecha Modificación",
+      "modifierUserId": "Usuario Modificador"
+    },
+    "data": {
+      "activeState": "Activo",
+      "inactiveState": "Inactivo",
+      "noState": "Sin Estado"
+    },
+    "noDataMessage": "No se obtuvieron datos"
+  },
+  "select": {
+    "elementQuantity": "Selecciona Cantidad de Elementos"
+  }
+}

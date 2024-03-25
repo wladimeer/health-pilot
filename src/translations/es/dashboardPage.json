@@ -1,0 +1,28 @@
+{
+  "title": "Panel",
+  "redirect": "Ir a Panel",
+  "breadcrumb": {
+    "home": "Panel",
+    "current": ""
+  },
+  "card": {
+    "title": {
+      "serviceType": "Tipo de Servicio",
+      "serviceName": "Nombre Servicio",
+      "responseTime": "Tiempo de Respuesta",
+      "serviceState": "Estado Servicio",
+      "color": "Color"
+    },
+    "value": {
+      "availableState": "Servicio Disponible",
+      "unavailableState": "Servicio No Disponible",
+      "noState": "Sin Estado",
+      "fonasa": "FONASA",
+      "valorization": "Valorización",
+      "certification": "Certificación",
+      "conciliation": "Conciliación",
+      "folioRequest": "Solicitud Folio",
+      "annulment": "Anulación"
+    }
+  }
+}

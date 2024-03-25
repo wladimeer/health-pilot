@@ -1,0 +1,5 @@
+const LANGUAGE_STORAGE_KEY = 'language'
+const USER_STORAGE_KEY = 'user'
+const EXPAND_SIDEBAR_KEY = 'expandSidebar'
+
+export { USER_STORAGE_KEY, LANGUAGE_STORAGE_KEY, EXPAND_SIDEBAR_KEY }

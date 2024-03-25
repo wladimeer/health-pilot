@@ -1,0 +1,31 @@
+{
+  "title": "Mantenedores",
+  "description": "El Módulo de Mantenedores es una herramienta integral diseñada para optimizar y simplificar la gestión de datos críticos en un sistema, específicamente enfocada en mantener o agrupar prestadores de servicios de salud. Este módulo permite a los usuarios administrar de manera eficiente los mantenedores, que son conjuntos de información maestra esenciales para el funcionamiento del sistema de salud.",
+  "redirect": "Ir a Mantenedores",
+  "breadcrumb": {
+    "home": "Administración",
+    "current": "Mantenedores"
+  },
+  "table": {
+    "columns": {
+      "personId": "ID Persona",
+      "holdingId": "ID Mantenedor",
+      "holdingIdentification": "Identificación Mantenedor",
+      "holdingName": "Nombre Mantenedor",
+      "holdingCreatedDate": "Fecha Creación",
+      "holdingUpdatedDate": "Fecha Modificación",
+      "actions": "Acciones"
+    },
+    "data": {
+      "activeState": "Activo",
+      "inactiveState": "Inactivo",
+      "noState": "Sin Estado",
+      "viewList": "Ver Lista",
+      "modify": "Modificar"
+    },
+    "noDataMessage": "No se obtuvieron datos"
+  },
+  "select": {
+    "elementQuantity": "Selecciona Cantidad de Elementos"
+  }
+}

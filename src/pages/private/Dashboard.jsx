@@ -31,11 +31,11 @@ const Dashboard = ({ services }) => {
             <Spinner color="black" />
           </CardBody>
         </Card>
-      ) : services.fonasa.length == 0 ? (
-        <div className="flex flex-wrap gap-3">
+      ) : services.fonasa.length > 0 ? (
+        <div className="flex gap-3 flex-auto">
           {mainCard.map((item, index) => (
-            <Card key={`${mainCard.key}-${index}`}>
-              <CardHeader className="flex gap-3 flex-1">
+            <Card key={`${mainCard.key}-${index}`} className="flex flex-row flex-wrap">
+              <CardHeader className="flex gap-3 flex-1 flex-wrap">
                 <Chip variant="flat" size="md" color="primary">
                   {item.serviceType.value}
                 </Chip>

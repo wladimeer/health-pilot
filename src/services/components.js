@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next'
 import { SERVICES_KEY } from '../constants/service'
+import { AVAILABLE_STATE, ERROR_STATE } from '../constants/states'
 import { ACTIVE_STATE, MALE_STATE, UNAVAILABLE_STATE } from '../constants/states'
 import { STATE_COLORS, ENTITIES_ID, ACTION_ICON_KEY } from '../constants/design'
 import { INACTIVE_STATE, FEMALE_STATE } from '../constants/states'
@@ -164,9 +164,7 @@ const generateTableStructure = ({
   }
 }
 
-const generateCardStructure = ({ pageKey, data }) => {
-  const [translation] = useTranslation(pageKey)
-
+const generateCardStructure = ({ data, translation }) => {
   if (data.length > 0) {
     const dataKeys = Object.keys(data[0])
 
@@ -186,10 +184,12 @@ const generateCardStructure = ({ pageKey, data }) => {
 
           let stateText = translation(`card.value.noState`)
 
-          if (stateValue === UNAVAILABLE_STATE) {
-            stateText = translation(`card.value.unavailableState`)
-          } else {
+          if (stateValue === AVAILABLE_STATE) {
             stateText = translation(`card.value.availableState`)
+          } else if (stateValue === ERROR_STATE) {
+            stateText = translation(`card.value.failedState`)
+          } else {
+            stateText = translation(`card.value.unavailableState`)
           }
 
           item['color'] = STATE_COLORS[stateValue]
@@ -207,7 +207,9 @@ const generateCardStructure = ({ pageKey, data }) => {
 
         newItem[camelCasedKey] = {
           title: translation(`card.title.${camelCasedKey}`),
-          value: SERVICES_KEY.includes(value) ? translation(`card.value.${value}`) : value
+          value: SERVICES_KEY.includes(toCamelCase(String(value)))
+            ? translation(`card.value.${toCamelCase(value)}`)
+            : value
         }
       })
 
@@ -222,6 +224,7 @@ export {
   generateTableStructure,
   generateCardStructure,
   camelCaseKeys,
+  lowerCaseKeys,
   toCamelCase,
   toSnakeCase,
   isArray,

@@ -1,10 +1,26 @@
+import { HOUR_INDICATOR, MINUTE_INDICATOR } from '../constants/design'
+import { MILLISECOND_LIMIT, SECOND_LIMIT, MINUTE_LIMIT } from '../constants/design'
+import { MILLISECOND_INDICATOR, SECOND_INDICATOR } from '../constants/design'
 import { Card, CardBody, CardFooter } from '@nextui-org/react'
 import { CircularProgress, Chip } from '@nextui-org/react'
 
-const ProgressCard = ({ title, value, isSecond = false, isPercent = false }) => {
+const ProgressCard = ({ title, value, isTime = false, isPercent = false }) => {
   let valueLabel = value
 
-  if (isSecond) valueLabel = `${value}s`
+  if (isTime) {
+    let indicator = HOUR_INDICATOR
+
+    if (value < MILLISECOND_LIMIT) {
+      indicator = MILLISECOND_INDICATOR
+    } else if (value < SECOND_LIMIT) {
+      indicator = SECOND_INDICATOR
+    } else if (value < MINUTE_LIMIT) {
+      indicator = MINUTE_INDICATOR
+    }
+
+    valueLabel = `${value}${indicator}`
+  }
+
   if (isPercent) valueLabel = `${value}%`
 
   return (
@@ -13,7 +29,7 @@ const ProgressCard = ({ title, value, isSecond = false, isPercent = false }) => 
         <CircularProgress
           classNames={{
             svg: 'w-32 h-32 drop-shadow-md',
-            value: 'text-3xl font-semibold text-white',
+            value: 'text-2xl font-semibold text-white',
             indicator: 'stroke-white',
             track: 'stroke-white/10'
           }}
@@ -21,6 +37,7 @@ const ProgressCard = ({ title, value, isSecond = false, isPercent = false }) => 
           showValueLabel={true}
           valueLabel={valueLabel}
           value={value}
+          maxValue={10}
         />
       </CardBody>
 

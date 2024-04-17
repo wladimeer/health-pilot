@@ -4,9 +4,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HoldingList from '../pages/private/HoldingList'
 import DeviceList from '../pages/private/DeviceList'
 import Dashboard from '../pages/private/Dashboard'
+import { useData } from '../contexts/Data'
 import Admin from '../pages/private/Admin'
 
 const AppRouter = () => {
+  const { services } = useData()
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -14,7 +17,7 @@ const AppRouter = () => {
       children: [
         {
           path: '',
-          element: <Dashboard />,
+          element: <Dashboard {...{ services }} />,
           index: true
         },
         {

@@ -1,4 +1,4 @@
-const EMISSION_KEY = 'emission'
+const EMISSION_KEY = 'issuance'
 const CONCILIATION_KEY = 'conciliation'
 const CERTIFICATION_KEY = 'certification'
 const FOLIO_REQUEST_KEY = 'folioRequest'

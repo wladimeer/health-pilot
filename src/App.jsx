@@ -1,4 +1,5 @@
 import i18n from 'i18next'
+import { DataProvider } from './contexts/Data'
 import { I18nextProvider } from 'react-i18next'
 import { ADMIN_PAGE_KEY } from './constants/pages'
 import { DASHBOARD_PAGE_KEY } from './constants/pages'
@@ -15,6 +16,8 @@ import { LanguageProvider } from './contexts/Language'
 import { SidebarProvider } from './contexts/Sidebar'
 import { SIDEBAR_KEY } from './constants/component'
 import { NextUIProvider } from '@nextui-org/react'
+import { SocketProvider } from './contexts/Socket'
+import { AuthProvider } from './contexts/Auth'
 import AppRouter from './routers/AppRouter'
 import './App.css'
 
@@ -39,7 +42,13 @@ const App = () => {
       <I18nextProvider i18n={i18n}>
         <LanguageProvider>
           <SidebarProvider>
-            <AppRouter />
+            <SocketProvider>
+              <AuthProvider>
+                <DataProvider>
+                  <AppRouter />
+                </DataProvider>
+              </AuthProvider>
+            </SocketProvider>
           </SidebarProvider>
         </LanguageProvider>
       </I18nextProvider>

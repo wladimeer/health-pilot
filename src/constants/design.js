@@ -1,10 +1,11 @@
-import { ACTIVE_STATE, INACTIVE_STATE } from './states'
+import { ACTIVE_STATE, INACTIVE_STATE, ERROR_STATE } from './states'
 import { DEVICE_LIST_PAGE_KEY, HOLDING_LIST_PAGE_KEY } from './pages'
 import { PROVIDER_LIST_PAGE_KEY } from './pages'
 
 const STATE_COLORS = {
   [ACTIVE_STATE]: 'success',
-  [INACTIVE_STATE]: 'danger'
+  [INACTIVE_STATE]: 'danger',
+  [ERROR_STATE]: 'warning'
 }
 
 const DEFAULT_ELEMENT_QUANTITY = 5
@@ -24,6 +25,15 @@ const ACTION_ICON_KEY = {
   modify: { icon: 'hiOutlinePencilAlt', color: 'yellow' }
 }
 
+const MILLISECOND_INDICATOR = 'ms'
+const SECOND_INDICATOR = 's'
+const MINUTE_INDICATOR = 'm'
+const HOUR_INDICATOR = 'h'
+
+const MILLISECOND_LIMIT = 1
+const SECOND_LIMIT = 60
+const MINUTE_LIMIT = 3600
+
 export {
   STATE_COLORS,
   DEFAULT_ELEMENT_QUANTITY,
@@ -31,5 +41,12 @@ export {
   INVALID_ELEMENT_QUANTITY,
   ACTIONS_KEY,
   ENTITIES_ID,
-  ACTION_ICON_KEY
+  ACTION_ICON_KEY,
+  MILLISECOND_INDICATOR,
+  SECOND_INDICATOR,
+  MINUTE_INDICATOR,
+  HOUR_INDICATOR,
+  MILLISECOND_LIMIT,
+  SECOND_LIMIT,
+  MINUTE_LIMIT
 }

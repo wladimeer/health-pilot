@@ -1,61 +1,69 @@
 import Container from '../../components/Container'
 import { generateCardStructure } from '../../services/components'
-import { Card, CardBody, CardHeader, Chip, Divider } from '@nextui-org/react'
+import { Card, CardBody, CardHeader, Chip, Divider, Spinner } from '@nextui-org/react'
 import { DASHBOARD_PAGE_KEY } from '../../constants/pages'
 import ProgressCard from '../../components/ProgressCard'
+import Indication from '../../components/Indication'
+import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react'
 
-const Dashboard = () => {
-  const serviceResponse = [
-    {
-      service_type: 'fonasa',
-      service_name: 'valorization',
-      response_time: 5,
-      service_state: 0
-    },
-    {
-      service_type: 'fonasa',
-      service_name: 'certification',
-      response_time: 12,
-      service_state: 1
-    }
-  ]
+const Dashboard = ({ services }) => {
+  const [translate] = useTranslation(DASHBOARD_PAGE_KEY)
 
-  const { key, data } = generateCardStructure({
-    pageKey: DASHBOARD_PAGE_KEY,
-    data: serviceResponse
-  })
+  const [isLoading, setIsLoading] = useState(true)
+  const [mainCard, setMainCard] = useState([])
+
+  useEffect(() => {
+    const generatedCard = generateCardStructure({
+      data: services.fonasa,
+      translation: translate
+    })
+
+    setMainCard(generatedCard.data)
+    setIsLoading(false)
+  }, [services])
 
   return (
     <Container pageKey={DASHBOARD_PAGE_KEY}>
-      <div className="grid grid-flow-col auto-cols-max gap-3">
-        {data.map((item, index) => (
-          <Card key={`${key}-${index}`}>
-            <CardHeader className="flex gap-3">
-              <Chip variant="flat" size="md" color="primary">
-                {item.serviceType.value}
-              </Chip>
+      {isLoading ? (
+        <Card>
+          <CardBody>
+            <Spinner color="black" />
+          </CardBody>
+        </Card>
+      ) : services.fonasa.length == 0 ? (
+        <div className="flex flex-wrap gap-3">
+          {mainCard.map((item, index) => (
+            <Card key={`${mainCard.key}-${index}`}>
+              <CardHeader className="flex gap-3 flex-1">
+                <Chip variant="flat" size="md" color="primary">
+                  {item.serviceType.value}
+                </Chip>
 
-              <Chip variant="flat" size="md" color="primary">
-                {item.serviceName.value}
-              </Chip>
+                <Chip variant="flat" size="md" color="primary">
+                  {item.serviceName.value}
+                </Chip>
 
-              <Chip variant="flat" size="md" color={item.color.value}>
-                {item.serviceState.value}
-              </Chip>
-            </CardHeader>
+                <Chip variant="flat" size="md" color={item.color.value}>
+                  {item.serviceState.value}
+                </Chip>
+              </CardHeader>
 
-            <Divider />
+              <Divider />
 
-            <CardBody>
-              <ProgressCard
-                title={item.responseTime.title}
-                value={item.responseTime.value}
-                isSecond
-              />
-            </CardBody>
-          </Card>
-        ))}
-      </div>
+              <CardBody>
+                <ProgressCard
+                  title={item.responseTime.title}
+                  value={item.responseTime.value}
+                  isTime
+                />
+              </CardBody>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <Indication message={translate('page.noData')} />
+      )}
     </Container>
   )
 }

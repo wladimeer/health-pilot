@@ -16,13 +16,18 @@
     "value": {
       "availableState": "Servicio Disponible",
       "unavailableState": "Servicio No Disponible",
+      "failedState": "Servicio Fallido",
       "noState": "Sin Estado",
       "fonasa": "FONASA",
+      "issuance": "Emisión",
       "valorization": "Valorización",
       "certification": "Certificación",
       "conciliation": "Conciliación",
       "folioRequest": "Solicitud Folio",
       "annulment": "Anulación"
     }
+  },
+  "page": {
+    "noData": "Sin datos para mostrar :("
   }
 }

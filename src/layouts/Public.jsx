@@ -1,9 +1,10 @@
 import { Navigate, Outlet } from 'react-router-dom'
+import { useAuth } from '../contexts/Auth'
 
 const Public = () => {
-  const user = true
+  const { isUserValid } = useAuth()
 
-  return !user ? (
+  return !isUserValid ? (
     <div className="flex h-screen">
       <Outlet />
     </div>

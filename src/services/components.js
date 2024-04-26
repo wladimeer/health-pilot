@@ -2,6 +2,7 @@ import { SERVICES_KEY } from '../constants/service'
 import { AVAILABLE_STATE, ERROR_STATE } from '../constants/states'
 import { ACTIVE_STATE, MALE_STATE, UNAVAILABLE_STATE } from '../constants/states'
 import { STATE_COLORS, ENTITIES_ID, ACTION_ICON_KEY } from '../constants/design'
+import { SERVICE_TYPE_KEY, SERVICE_STATE_KEY } from '../constants/design'
 import { INACTIVE_STATE, FEMALE_STATE } from '../constants/states'
 import { TYPE_OBJECT, TYPE_STRING } from '../constants/types'
 import { v4 as randomId } from 'uuid'
@@ -165,21 +166,20 @@ const generateTableStructure = ({
 }
 
 const generateCardStructure = ({ data, translation }) => {
+  let newData = []
+
   if (data.length > 0) {
-    const dataKeys = Object.keys(data[0])
+    data.forEach((item) => {
+      const itemKeys = Object.keys(item)
+      const objectData = {}
 
-    dataKeys.forEach((key) => {
-      const isType = key.split('_').includes('type')
-      const isState = key.split('_').includes('state')
+      itemKeys.forEach((key) => {
+        const newKey = toCamelCase(key)
 
-      data.forEach((item) => {
-        if (isType) {
-          const typeValue = item[key]
-
-          item[key] = translation(`card.value.${typeValue}`)
-        }
-
-        if (isState) {
+        if (newKey === SERVICE_TYPE_KEY) {
+          const typeValue = String(item[key]).toLowerCase()
+          objectData[newKey] = translation(`card.value.${typeValue}`)
+        } else if (newKey === SERVICE_STATE_KEY) {
           const stateValue = item[key]
 
           let stateText = translation(`card.value.noState`)
@@ -188,17 +188,21 @@ const generateCardStructure = ({ data, translation }) => {
             stateText = translation(`card.value.availableState`)
           } else if (stateValue === ERROR_STATE) {
             stateText = translation(`card.value.failedState`)
-          } else {
+          } else if (stateValue === UNAVAILABLE_STATE) {
             stateText = translation(`card.value.unavailableState`)
           }
 
-          item['color'] = STATE_COLORS[stateValue]
-          item[key] = stateText
+          objectData['color'] = STATE_COLORS[stateValue]
+          objectData[newKey] = stateText
+        } else {
+          objectData[newKey] = item[key]
         }
       })
+
+      newData.push(objectData)
     })
 
-    data = [...data].map((item) => {
+    newData = [...newData].map((item) => {
       const newItem = {}
 
       Object.keys(item).forEach((key) => {
@@ -217,7 +221,7 @@ const generateCardStructure = ({ data, translation }) => {
     })
   }
 
-  return { data, key: randomId() }
+  return { data: newData, key: randomId() }
 }
 
 export {

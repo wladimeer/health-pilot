@@ -1,4 +1,4 @@
-const EMISSION_KEY = 'issuance'
+const ISSUANCE_KEY = 'issuance'
 const CONCILIATION_KEY = 'conciliation'
 const CERTIFICATION_KEY = 'certification'
 const FOLIO_REQUEST_KEY = 'folioRequest'
@@ -6,7 +6,7 @@ const VALORIZATION_KEY = 'valorization'
 const ANNULMENT_KEY = 'annulment'
 
 const SERVICES_KEY = [
-  EMISSION_KEY,
+  ISSUANCE_KEY,
   CONCILIATION_KEY,
   CERTIFICATION_KEY,
   FOLIO_REQUEST_KEY,
@@ -15,7 +15,7 @@ const SERVICES_KEY = [
 ]
 
 export {
-  EMISSION_KEY,
+  ISSUANCE_KEY,
   CONCILIATION_KEY,
   CERTIFICATION_KEY,
   FOLIO_REQUEST_KEY,

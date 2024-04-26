@@ -1,5 +1,4 @@
 import i18n from 'i18next'
-import { DataProvider } from './contexts/Data'
 import { I18nextProvider } from 'react-i18next'
 import { ADMIN_PAGE_KEY } from './constants/pages'
 import { DASHBOARD_PAGE_KEY } from './constants/pages'
@@ -44,9 +43,7 @@ const App = () => {
           <SidebarProvider>
             <SocketProvider>
               <AuthProvider>
-                <DataProvider>
-                  <AppRouter />
-                </DataProvider>
+                <AppRouter />
               </AuthProvider>
             </SocketProvider>
           </SidebarProvider>

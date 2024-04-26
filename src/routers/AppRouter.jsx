@@ -1,14 +1,15 @@
 import Private from '../layouts/Private'
+import { useSocket } from '../contexts/Socket'
 import ProviderList from '../pages/private/ProviderList'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HoldingList from '../pages/private/HoldingList'
 import DeviceList from '../pages/private/DeviceList'
 import Dashboard from '../pages/private/Dashboard'
-import { useData } from '../contexts/Data'
 import Admin from '../pages/private/Admin'
+import Public from '../layouts/Public'
 
 const AppRouter = () => {
-  const { services } = useData()
+  const { socket, isConnected } = useSocket()
 
   const router = createBrowserRouter([
     {
@@ -17,7 +18,7 @@ const AppRouter = () => {
       children: [
         {
           path: '',
-          element: <Dashboard {...{ services }} />,
+          element: <Dashboard {...{ socket, isConnected }} />,
           index: true
         },
         {
@@ -29,18 +30,29 @@ const AppRouter = () => {
               index: true
             },
             {
-              path: 'holding-list',
+              path: '/admin/holding-list',
               element: <HoldingList />
             },
             {
-              path: 'holding-list/provider-list/:holdingId',
+              path: '/admin/holding-list/provider-list/:holdingId',
               element: <ProviderList />
             },
             {
-              path: 'device-list',
+              path: '/admin/device-list',
               element: <DeviceList />
             }
           ]
+        }
+      ]
+    },
+    {
+      path: '/public',
+      element: <Public />,
+      children: [
+        {
+          path: '',
+          element: <Dashboard {...{ socket }} />,
+          index: true
         }
       ]
     }

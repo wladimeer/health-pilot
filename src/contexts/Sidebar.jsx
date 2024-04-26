@@ -18,9 +18,9 @@ const SidebarProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const isExist = sessionStorage.key(EXPAND_SIDEBAR_KEY)
+    const exist = sessionStorage.getItem(EXPAND_SIDEBAR_KEY)
 
-    if (isExist != null) {
+    if (exist != null) {
       const expandedState = sessionStorage.getItem(EXPAND_SIDEBAR_KEY)
       updateExpanded(JSON.parse(expandedState))
     } else {

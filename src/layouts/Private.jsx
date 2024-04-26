@@ -1,16 +1,17 @@
 import AppSidebar from '../components/AppSidebar'
 import { Navigate, Outlet } from 'react-router-dom'
+import { useAuth } from '../contexts/Auth'
 
 const Private = () => {
-  const user = true
+  const { isUserValid } = useAuth()
 
-  return user ? (
+  return isUserValid ? (
     <div className="flex h-screen">
       <AppSidebar />
       <Outlet />
     </div>
   ) : (
-    <Navigate replace to="/" />
+    <Navigate replace to="/public" />
   )
 }
 

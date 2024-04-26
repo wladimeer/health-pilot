@@ -23,9 +23,9 @@ const LanguageProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const isExist = sessionStorage.key(LANGUAGE_STORAGE_KEY)
+    const exist = sessionStorage.getItem(LANGUAGE_STORAGE_KEY)
 
-    if (isExist != null) {
+    if (exist != null) {
       const languageData = sessionStorage.getItem(LANGUAGE_STORAGE_KEY)
       updateLanguageData(languageData)
     } else {

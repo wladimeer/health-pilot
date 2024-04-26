@@ -51,7 +51,7 @@ const AppRouter = () => {
       children: [
         {
           path: '',
-          element: <Dashboard {...{ socket }} />,
+          element: <Dashboard {...{ socket, isConnected }} />,
           index: true
         }
       ]

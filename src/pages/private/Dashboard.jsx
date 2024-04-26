@@ -12,16 +12,18 @@ const Dashboard = ({ socket, isConnected }) => {
   const [translate] = useTranslation(DASHBOARD_PAGE_KEY)
 
   const [isLoading, setIsLoading] = useState(true)
-  const [mainCard, setMainCard] = useState([])
   const [isSuscribed, setIsSuscribed] = useState(false)
+  const [mainCard, setMainCard] = useState([])
 
   const {
     userData: { sessionId }
   } = useAuth()
 
   const handleConnection = () => {
-    socket.emit('fonasa:subscribe', { sessionId })
-    setIsSuscribed(true)
+    if (!isSuscribed) {
+      socket.emit('fonasa:subscribe', { sessionId })
+      setIsSuscribed(true)
+    }
   }
 
   const handleFonasaAll = (socketData) => {

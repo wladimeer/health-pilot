@@ -3,7 +3,10 @@
   "redirect": "Ir a Panel",
   "breadcrumb": {
     "home": "Panel",
-    "current": ""
+    "current": "",
+    "button": {
+      "login": "Iniciar Sesión"
+    }
   },
   "card": {
     "title": {

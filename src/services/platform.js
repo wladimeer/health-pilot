@@ -1,4 +1,6 @@
+import { HOLDING_PAGE_PATH, DEVICE_PAGE_PATH, PROVIDER_PAGE_PATH } from '../constants/paths'
 import { DASHBOARD_PAGE_KEY, ADMIN_PAGE_KEY, PROVIDER_LIST_PAGE_KEY } from '../constants/pages'
+import { LOGIN_PAGE_PATH, DASHBOARD_PAGE_PATH, ADMIN_PAGE_PATH } from '../constants/paths'
 import { HOLDING_LIST_PAGE_KEY, DEVICE_LIST_PAGE_KEY } from '../constants/pages'
 import { useTranslation } from 'react-i18next'
 
@@ -6,22 +8,22 @@ const MENUS = {
   [DASHBOARD_PAGE_KEY]: {
     key: DASHBOARD_PAGE_KEY,
     icon: 'hiChartPie',
-    path: '/'
+    path: DASHBOARD_PAGE_PATH
   },
   [ADMIN_PAGE_KEY]: {
     key: ADMIN_PAGE_KEY,
     icon: 'hiCog',
-    path: '/admin',
+    path: ADMIN_PAGE_PATH,
     submenus: [
       {
         key: HOLDING_LIST_PAGE_KEY,
         icon: 'hiUserGroup',
-        path: '/admin/holding-list'
+        path: HOLDING_PAGE_PATH
       },
       {
         key: DEVICE_LIST_PAGE_KEY,
         icon: 'hiDeviceMobile',
-        path: '/admin/device-list'
+        path: DEVICE_PAGE_PATH
       }
     ]
   }
@@ -32,55 +34,55 @@ const BREADCRUMBS = {
     home: {
       key: 'breadcrumb.home',
       title: null,
-      path: '/admin'
+      path: ADMIN_PAGE_PATH
     }
   },
   [HOLDING_LIST_PAGE_KEY]: {
     home: {
       key: 'breadcrumb.home',
       title: null,
-      path: '/admin'
+      path: ADMIN_PAGE_PATH
     },
     current: {
       key: 'breadcrumb.current',
       title: null,
-      path: '/admin/holding-list'
+      path: HOLDING_PAGE_PATH
     }
   },
   [DEVICE_LIST_PAGE_KEY]: {
     home: {
       key: 'breadcrumb.home',
       title: null,
-      path: '/admin'
+      path: ADMIN_PAGE_PATH
     },
     current: {
       key: 'breadcrumb.current',
       title: null,
-      path: '/admin/device-list'
+      path: DEVICE_PAGE_PATH
     }
   },
   [DASHBOARD_PAGE_KEY]: {
     home: {
       key: 'breadcrumb.home',
       title: null,
-      path: '/'
+      path: DASHBOARD_PAGE_PATH
     }
   },
   [PROVIDER_LIST_PAGE_KEY]: {
     home: {
       key: 'breadcrumb.home',
       title: null,
-      path: '/admin'
+      path: ADMIN_PAGE_PATH
     },
     prev: {
       key: 'breadcrumb.prev',
       title: null,
-      path: '/admin/holding-list'
+      path: HOLDING_PAGE_PATH
     },
     current: {
       key: 'breadcrumb.current',
       title: null,
-      path: '/admin/holding-list/provider-list'
+      path: PROVIDER_PAGE_PATH
     }
   }
 }
@@ -120,6 +122,11 @@ const getBreadcrumb = (pageKey) => {
     const item = breadcrumb[key]
     item.title = translation(item.key)
   })
+
+  breadcrumb.button = {
+    title: translation('breadcrumb.button.login'),
+    path: LOGIN_PAGE_PATH
+  }
 
   return breadcrumb
 }

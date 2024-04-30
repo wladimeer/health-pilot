@@ -1,4 +1,5 @@
 import AppSidebar from '../components/AppSidebar'
+import { DASHBOARD_PAGE_PATH } from '../constants/paths'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from '../contexts/Auth'
 
@@ -11,7 +12,7 @@ const Private = () => {
       <Outlet />
     </div>
   ) : (
-    <Navigate replace to="/public" />
+    <Navigate replace to={DASHBOARD_PAGE_PATH} />
   )
 }
 

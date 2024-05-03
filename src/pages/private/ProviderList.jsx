@@ -9,6 +9,7 @@ import { Modal, ModalContent, ModalHeader, ModalBody } from '@nextui-org/react'
 import { generateTableStructure } from '../../services/components'
 import { Card, CardBody, Spinner } from '@nextui-org/react'
 import { ACTIONS_KEY } from '../../constants/design'
+import { getConfig } from '../../services/platform'
 import Container from '../../components/Container'
 import { useDisclosure } from '@nextui-org/react'
 import { useParams } from 'react-router-dom'
@@ -25,6 +26,8 @@ const ProviderList = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [insideTable, setInsideTable] = useState({})
   const [mainTable, setMainTable] = useState({})
+
+  const { breadcrumb } = getConfig(PROVIDER_LIST_PAGE_KEY)
 
   const keysToShow = {
     branchOffices: ['branchOfficeId', 'branchOfficeIdentification', 'branchOfficeName', 'state'],
@@ -209,7 +212,7 @@ const ProviderList = () => {
         </ModalContent>
       </Modal>
 
-      <Container pageKey={PROVIDER_LIST_PAGE_KEY}>
+      <Container title={translate('title')} breadcrumb={breadcrumb}>
         {isLoading ? (
           <Card>
             <CardBody>

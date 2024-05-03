@@ -1,24 +1,17 @@
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { getBreadcrumb } from '../services/platform'
-import { useAuth } from '../contexts/Auth'
 import Breadcrumb from './Breadcrumb'
+import { Link } from 'react-router-dom'
 import Icon from './Icon'
 
-const Container = ({ pageKey, children }) => {
-  const [translation] = useTranslation(pageKey)
-  const breadcrumb = getBreadcrumb(pageKey)
-  const { isUserValid } = useAuth()
-
+const Container = ({ title, breadcrumb, children, breadcrumbButton = null }) => {
   const { home, prev, current } = breadcrumb
 
   return (
     <div className="flex-1 p-2 transition duration-300">
-      <Breadcrumb {...breadcrumb} showButton={!isUserValid} />
+      <Breadcrumb {...breadcrumb} rightButton={breadcrumbButton} />
 
       <div className="p-5 ring-2 ring-blue-500/50 rounded font-fira-sans-condensed">
         <section className="flex items-center justify-between mb-3">
-          <h1 className="underline underline-offset-4 text-lg">{translation('title')}</h1>
+          <h1 className="underline underline-offset-4 text-lg">{title}</h1>
 
           {current &&
             (prev ? (

@@ -1,6 +1,7 @@
 import i18n from 'i18next'
 import { I18nextProvider } from 'react-i18next'
 import { ADMIN_PAGE_KEY } from './constants/pages'
+import { LOGIN_MODAL_KEY } from './constants/modals'
 import { DASHBOARD_PAGE_KEY } from './constants/pages'
 import { PROVIDER_LIST_PAGE_KEY } from './constants/pages'
 import { VALID_LANGUAGE_CODES } from './constants/language'
@@ -10,6 +11,7 @@ import holdingListPageES from './translations/es/holdingListPage.json'
 import deviceLisPagetES from './translations/es/deviceListPage.json'
 import dashboardPageES from './translations/es/dashboardPage.json'
 import adminPageES from './translations/es/adminListPage.json'
+import loginModalES from './translations/es/loginModal.json'
 import sidebarES from './translations/es/sidebar.json'
 import { LanguageProvider } from './contexts/Language'
 import { SidebarProvider } from './contexts/Sidebar'
@@ -29,7 +31,8 @@ i18n.init({
       [HOLDING_LIST_PAGE_KEY]: holdingListPageES,
       [PROVIDER_LIST_PAGE_KEY]: providerListPageES,
       [DEVICE_LIST_PAGE_KEY]: deviceLisPagetES,
-      [DASHBOARD_PAGE_KEY]: dashboardPageES
+      [DASHBOARD_PAGE_KEY]: dashboardPageES,
+      [LOGIN_MODAL_KEY]: loginModalES
     }
   },
   lng: VALID_LANGUAGE_CODES

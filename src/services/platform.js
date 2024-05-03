@@ -1,7 +1,7 @@
 import { HOLDING_PAGE_PATH, DEVICE_PAGE_PATH, PROVIDER_PAGE_PATH } from '../constants/paths'
 import { DASHBOARD_PAGE_KEY, ADMIN_PAGE_KEY, PROVIDER_LIST_PAGE_KEY } from '../constants/pages'
-import { LOGIN_PAGE_PATH, DASHBOARD_PAGE_PATH, ADMIN_PAGE_PATH } from '../constants/paths'
 import { HOLDING_LIST_PAGE_KEY, DEVICE_LIST_PAGE_KEY } from '../constants/pages'
+import { DASHBOARD_PAGE_PATH, ADMIN_PAGE_PATH } from '../constants/paths'
 import { useTranslation } from 'react-i18next'
 
 const MENUS = {
@@ -123,12 +123,20 @@ const getBreadcrumb = (pageKey) => {
     item.title = translation(item.key)
   })
 
-  breadcrumb.button = {
-    title: translation('breadcrumb.button.login'),
-    path: LOGIN_PAGE_PATH
-  }
-
   return breadcrumb
 }
 
-export { getMenu, getAllMenus, getBreadcrumb }
+const getConfig = (pageKey, includeMenu = false) => {
+  const breadcrumb = getBreadcrumb(pageKey)
+
+  const response = { breadcrumb }
+
+  if (includeMenu) {
+    const { submenus } = getMenu(pageKey)
+    response.submenus = submenus
+  }
+
+  return response
+}
+
+export { getAllMenus, getConfig }

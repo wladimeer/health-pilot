@@ -8,7 +8,6 @@ const ADMIN_PAGE_PATH = '/admin'
 const HOLDING_PAGE_PATH = `${ADMIN_PAGE_PATH}/holding-list`
 const PROVIDER_PAGE_PATH = `${HOLDING_PAGE_PATH}/provider-list/:holdingId`
 const DEVICE_PAGE_PATH = `${ADMIN_PAGE_PATH}/device-list`
-const LOGIN_PAGE_PATH = '/login'
 
 export {
   SERVER,
@@ -19,6 +18,5 @@ export {
   HOLDING_PAGE_PATH,
   PROVIDER_PAGE_PATH,
   DEVICE_PAGE_PATH,
-  LOGIN_PAGE_PATH,
   NO_PATH
 }

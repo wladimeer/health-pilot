@@ -1,4 +1,5 @@
 import DataTable from '../../components/DataTable'
+import { getConfig } from '../../services/platform'
 import { DEVICE_LIST_PAGE_KEY } from '../../constants/pages'
 import { generateTableStructure } from '../../services/components'
 import { Card, CardBody, Spinner } from '@nextui-org/react'
@@ -11,6 +12,8 @@ const DeviceList = () => {
 
   const [isLoading, setIsLoading] = useState(true)
   const [mainTable, setMainTable] = useState({})
+
+  const { breadcrumb } = getConfig(DEVICE_LIST_PAGE_KEY)
 
   useEffect(() => {
     const loadDevicesData = () => {
@@ -62,7 +65,7 @@ const DeviceList = () => {
   }, [])
 
   return (
-    <Container pageKey={DEVICE_LIST_PAGE_KEY}>
+    <Container title={translate('title')} breadcrumb={breadcrumb}>
       {isLoading ? (
         <Card>
           <CardBody>

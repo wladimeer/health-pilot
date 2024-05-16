@@ -29,6 +29,12 @@
         }
       }
     },
+    "submissions": {
+      "text": {
+        "loading": "Iniciando Sesión",
+        "empty": "Comprueba que todos los campos estén completos"
+      }
+    },
     "responses": {
       "text": {
         "success": "Proceso realizado con éxito",

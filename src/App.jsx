@@ -1,4 +1,5 @@
 import i18n from 'i18next'
+import 'react-toastify/dist/ReactToastify.css'
 import { I18nextProvider } from 'react-i18next'
 import { ADMIN_PAGE_KEY } from './constants/pages'
 import { LOGIN_MODAL_KEY } from './constants/modals'

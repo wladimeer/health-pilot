@@ -1,6 +1,7 @@
 const SERVER = import.meta.env.VITE_SERVER
 const PROVIDER_PATH = import.meta.env.VITE_PROVIDER_PATH
 const HOLDING_PATH = import.meta.env.VITE_HOLDING_PATH
+const AUTH_PATH = import.meta.env.VITE_AUTH_PATH
 
 const NO_PATH = ''
 const DASHBOARD_PAGE_PATH = '/'
@@ -18,5 +19,6 @@ export {
   HOLDING_PAGE_PATH,
   PROVIDER_PAGE_PATH,
   DEVICE_PAGE_PATH,
-  NO_PATH
+  NO_PATH,
+  AUTH_PATH
 }

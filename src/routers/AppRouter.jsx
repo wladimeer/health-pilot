@@ -17,44 +17,34 @@ const AppRouter = () => {
   const router = createBrowserRouter([
     {
       path: DASHBOARD_PAGE_PATH,
-      element: <Dashboard {...{ socket, isConnected }} />,
-      index: true
-    },
-    {
-      path: ADMIN_PAGE_PATH,
+      element: <Private />,
       children: [
         {
           path: NO_PATH,
-          element: (
-            <Private>
-              <Admin />
-            </Private>
-          ),
+          element: <Dashboard {...{ socket, isConnected }} />,
           index: true
         },
         {
-          path: HOLDING_PAGE_PATH,
-          element: (
-            <Private>
-              <HoldingList />
-            </Private>
-          )
-        },
-        {
-          path: PROVIDER_PAGE_PATH,
-          element: (
-            <Private>
-              <ProviderList />
-            </Private>
-          )
-        },
-        {
-          path: DEVICE_PAGE_PATH,
-          element: (
-            <Private>
-              <DeviceList />
-            </Private>
-          )
+          path: ADMIN_PAGE_PATH,
+          children: [
+            {
+              path: NO_PATH,
+              element: <Admin />,
+              index: true
+            },
+            {
+              path: HOLDING_PAGE_PATH,
+              element: <HoldingList />
+            },
+            {
+              path: PROVIDER_PAGE_PATH,
+              element: <ProviderList />
+            },
+            {
+              path: DEVICE_PAGE_PATH,
+              element: <DeviceList />
+            }
+          ]
         }
       ]
     }

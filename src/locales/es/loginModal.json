@@ -1,0 +1,40 @@
+{
+  "title": "Inicio Sesión",
+  "form": {
+    "labels": {
+      "text": {
+        "username": "Usuario",
+        "password": "Contraseña"
+      },
+      "placeholder": {
+        "username": "devd@domain.com",
+        "password": "devd1485a"
+      }
+    },
+    "buttons": {
+      "text": {
+        "login": "Iniciar Sesión",
+        "close": "Cerrar"
+      }
+    },
+    "errors": {
+      "text": {
+        "empty": {
+          "username": "El usuario es requerido",
+          "password": "La contraseña es requerida"
+        },
+        "invalid": {
+          "username": "Verifica el usuario ingresado",
+          "password": "Verifica la contraseña ingresada"
+        }
+      }
+    },
+    "responses": {
+      "text": {
+        "success": "Proceso realizado con éxito",
+        "exception": "Se produjo un error al procesar la solicitud",
+        "error": "Verifica los datos ingresados"
+      }
+    }
+  }
+}

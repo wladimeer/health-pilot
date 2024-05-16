@@ -17,6 +17,14 @@ const AuthProvider = ({ children }) => {
     }
 
     if (userData !== null) {
+      if (userData?.username !== definedUser.username) {
+        if (!Object.keys(userData).includes('sessionId')) {
+          userData.sessionId = randomId()
+        }
+      } else if (!Object.keys(userData).includes('sessionId')) {
+        userData.sessionId = randomId()
+      }
+
       definedUser = userData
     }
 
@@ -46,10 +54,15 @@ const AuthProvider = ({ children }) => {
 
 const useAuth = () => {
   const { userData, updateUserData } = useContext(AuthContext)
+  const invalidData = [null, undefined, '', 'undefined', 'null']
 
-  const isNull = userData === null
-  const isInvalid = userData?.username === USER_DEFAULT_USERNAME
-  const isUserValid = !isNull && !isInvalid
+  let isUserValid = true
+
+  if (invalidData.includes(userData)) {
+    isUserValid = false
+  } else if (userData?.username === USER_DEFAULT_USERNAME) {
+    isUserValid = false
+  }
 
   return { userData, updateUserData, isUserValid }
 }

@@ -1,5 +1,7 @@
 import { useAuth } from '../../contexts/Auth'
 import Container from '../../components/Container'
+import { getConfig } from '../../services/platform'
+import { Button, useDisclosure } from '@nextui-org/react'
 import { generateCardStructure } from '../../services/components'
 import { Card, CardBody, CardHeader, Chip, Divider, Spinner } from '@nextui-org/react'
 import { DASHBOARD_PAGE_KEY } from '../../constants/pages'
@@ -7,13 +9,18 @@ import ProgressCard from '../../components/ProgressCard'
 import Indication from '../../components/Indication'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
+import Login from '../../modals/Login'
 
 const Dashboard = ({ socket, isConnected }) => {
   const [translate] = useTranslation(DASHBOARD_PAGE_KEY)
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const { isUserValid } = useAuth()
 
   const [isLoading, setIsLoading] = useState(true)
   const [isSuscribed, setIsSuscribed] = useState(false)
   const [mainCard, setMainCard] = useState([])
+
+  const { breadcrumb } = getConfig(DASHBOARD_PAGE_KEY)
 
   const {
     userData: { sessionId }
@@ -36,6 +43,16 @@ const Dashboard = ({ socket, isConnected }) => {
     setIsLoading(false)
   }
 
+  const BreadcrumbButton = () => {
+    return (
+      !isUserValid && (
+        <Button variant="ghost" color="primary" onClick={onOpen}>
+          {translate('breadcrumb.button.login')}
+        </Button>
+      )
+    )
+  }
+
   useEffect(() => {
     if (isConnected) handleConnection()
 
@@ -51,7 +68,13 @@ const Dashboard = ({ socket, isConnected }) => {
   }, [socket, isConnected, isSuscribed])
 
   return (
-    <Container pageKey={DASHBOARD_PAGE_KEY}>
+    <Container
+      title={translate('title')}
+      breadcrumb={breadcrumb}
+      breadcrumbButton={<BreadcrumbButton />}
+    >
+      <Login isOpen={isOpen} onOpenChange={onOpenChange} />
+
       {isLoading ? (
         <Card>
           <CardBody>

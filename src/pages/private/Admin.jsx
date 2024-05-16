@@ -1,14 +1,16 @@
 import Icon from '../../components/Icon'
 import Container from '../../components/Container'
+import { getConfig } from '../../services/platform'
 import { ADMIN_PAGE_KEY } from '../../constants/pages'
-import { getMenu } from '../../services/platform'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 const Admin = () => {
-  const { submenus } = getMenu(ADMIN_PAGE_KEY)
+  const [translate] = useTranslation(ADMIN_PAGE_KEY)
+  const { breadcrumb, submenus } = getConfig(ADMIN_PAGE_KEY, true)
 
   return (
-    <Container pageKey={ADMIN_PAGE_KEY}>
+    <Container title={translate('title')} breadcrumb={breadcrumb}>
       <section className="grid grid-cols-3 gap-5 select-none">
         {submenus.map(({ key, path, title, icon, description, redirect }) => (
           <div

@@ -6,6 +6,7 @@ import { HOLDING_LIST_PAGE_KEY } from '../../constants/pages'
 import { generateTableStructure } from '../../services/components'
 import { getAllHoldings } from '../../services/intermediary'
 import { ACTIONS_KEY } from '../../constants/design'
+import { getConfig } from '../../services/platform'
 import Container from '../../components/Container'
 import { useNavigate } from 'react-router-dom'
 
@@ -15,6 +16,8 @@ const HoldingList = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [translate] = useTranslation(HOLDING_LIST_PAGE_KEY)
   const [mainTable, setMainTable] = useState({})
+
+  const { breadcrumb } = getConfig(HOLDING_LIST_PAGE_KEY)
 
   const actionsFunctions = {
     viewList: (holdingId) => {
@@ -50,7 +53,7 @@ const HoldingList = () => {
   }, [])
 
   return (
-    <Container pageKey={HOLDING_LIST_PAGE_KEY}>
+    <Container title={translate('title')} breadcrumb={breadcrumb}>
       {isLoading ? (
         <Card>
           <CardBody>

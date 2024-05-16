@@ -1,4 +1,3 @@
-const LOGIN_PAGE_KEY = 'loginPage'
 const DASHBOARD_PAGE_KEY = 'dashboardPage'
 const HOLDING_LIST_PAGE_KEY = 'holdingListPage'
 const PROVIDER_LIST_PAGE_KEY = 'providerListPage'
@@ -6,7 +5,6 @@ const DEVICE_LIST_PAGE_KEY = 'deviceListPage'
 const ADMIN_PAGE_KEY = 'adminPage'
 
 const ALL_PAGES = [
-  LOGIN_PAGE_KEY,
   DASHBOARD_PAGE_KEY,
   HOLDING_LIST_PAGE_KEY,
   PROVIDER_LIST_PAGE_KEY,
@@ -15,7 +13,6 @@ const ALL_PAGES = [
 ]
 
 export {
-  LOGIN_PAGE_KEY,
   DASHBOARD_PAGE_KEY,
   HOLDING_LIST_PAGE_KEY,
   PROVIDER_LIST_PAGE_KEY,

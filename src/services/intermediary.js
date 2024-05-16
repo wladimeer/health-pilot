@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { SERVER, HOLDING_PATH, PROVIDER_PATH } from '../constants/paths'
+import { SERVER, HOLDING_PATH, PROVIDER_PATH, AUTH_PATH } from '../constants/paths'
+import { EXCEPTION_STATUS } from '../constants/states'
 
 // Holding Endpoints
 const getAllHoldings = async () => {
@@ -31,4 +32,29 @@ const findProvidersByHoldingId = async (holdingId) => {
   return data
 }
 
-export { getAllHoldings, findProvidersByHoldingId, findProviderById }
+// Auth Endpoints
+const signIn = async (username, password) => {
+  const REQUEST_URL = `${SERVER}/${AUTH_PATH}/login`
+
+  const DATA = {
+    username,
+    password
+  }
+
+  let response = {}
+
+  try {
+    const { data } = await axios.post(REQUEST_URL, DATA)
+    response = data
+  } catch ({ message }) {
+    response = {
+      status: EXCEPTION_STATUS,
+      message: message,
+      data: {}
+    }
+  } finally {
+    return response
+  }
+}
+
+export { getAllHoldings, findProvidersByHoldingId, findProviderById, signIn }

@@ -28,7 +28,8 @@ const Icon = ({ icon, size = 5, isButton = false }) => {
   const iconElement = ICONS[icon]
 
   return cloneElement(iconElement, {
-    className: `w-${size} h-${size} ${isButton && 'cursor-pointer'}`
+    className: `w-${size} h-${size} ${isButton && 'cursor-pointer'}`,
+    'data-testid': icon
   })
 }
 

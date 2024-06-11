@@ -4,7 +4,7 @@ import { describe, test, expect } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 
 describe('DataTable', () => {
-  const data = {
+  const testData = {
     columns: [
       {
         header: 'Test ID',
@@ -65,53 +65,53 @@ describe('DataTable', () => {
   }
 
   test("should show noDataMessage when there isn't data", () => {
-    handleRender({ columns: data.columns })
+    handleRender({ columns: testData.columns })
     const message = screen.getByText('No data')
     expect(message).toBeDefined()
   })
 
   test('should hide noDataMessage when there is data', () => {
-    handleRender({ ...data })
+    handleRender({ ...testData })
     const message = screen.queryByText('No data')
     expect(message).toBeNull()
   })
 
   test('should display the correct rows length', () => {
-    handleRender({ ...data })
+    handleRender({ ...testData })
     const rows = screen.getAllByRole('rowheader')
-    expect(rows).toHaveLength(data.data.length)
+    expect(rows).toHaveLength(testData.data.length)
   })
 
   test('should display the correct columns length', () => {
-    handleRender({ ...data })
+    handleRender({ ...testData })
     const columns = screen.getAllByRole('columnheader')
-    expect(columns).toHaveLength(data.columns.length)
+    expect(columns).toHaveLength(testData.columns.length)
   })
 
   test('should display the headers values on the table', () => {
-    handleRender({ ...data })
+    handleRender({ ...testData })
 
     const headers = screen.getAllByRole('columnheader')
 
     headers.forEach((header, index) => {
-      expect(header.textContent).equal(data.columns[index].header)
+      expect(header.textContent).equal(testData.columns[index].header)
     })
   })
 
   test('should display the rows values on the table', () => {
-    handleRender({ ...data })
+    handleRender({ ...testData })
 
     const rows = screen.getAllByRole('rowheader')
 
     rows.forEach((row, index) => {
-      expect(row.textContent).equal(data.data[index].testId)
+      expect(row.textContent).equal(testData.data[index].testId)
     })
 
     const cells = screen.getAllByRole('gridcell')
 
     cells.forEach((cell) => {
       const [index, key] = cell.getAttribute('data-key').split('_')
-      expect(cell.textContent).equal(data.data[index][key])
+      expect(cell.textContent).equal(testData.data[index][key])
     })
   })
 })

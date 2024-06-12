@@ -5,15 +5,15 @@ import Icon from './Icon'
 const Breadcrumb = ({ home, prev, current, rightButton = null }) => {
   return (
     <div className="flex items-center justify-between mb-5 font-fira-sans-condensed">
-      <Breadcrumbs className="flex gap-2 items-center">
-        <BreadcrumbItem startContent={<Icon icon="hiHome" />}>
+      <Breadcrumbs data-testid="breadcrumb-content" className="flex gap-2 items-center">
+        <BreadcrumbItem data-testid="breadcrumb-item-home" startContent={<Icon icon="hiHome" />}>
           <Link className="text-lg" to={home.path}>
             {home.title}
           </Link>
         </BreadcrumbItem>
 
         {prev && (
-          <BreadcrumbItem>
+          <BreadcrumbItem data-testid="breadcrumb-item-prev">
             <Link className="text-lg" to={prev.path}>
               {prev.title}
             </Link>
@@ -21,7 +21,7 @@ const Breadcrumb = ({ home, prev, current, rightButton = null }) => {
         )}
 
         {current && (
-          <BreadcrumbItem>
+          <BreadcrumbItem data-testid="breadcrumb-item-current">
             <Link className="text-lg" to={current.path}>
               {current.title}
             </Link>

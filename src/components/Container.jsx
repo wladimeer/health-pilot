@@ -9,9 +9,14 @@ const Container = ({ title, breadcrumb, children, breadcrumbButton = null }) => 
     <div className="flex-1 p-2 transition duration-300">
       <Breadcrumb {...breadcrumb} rightButton={breadcrumbButton} />
 
-      <div className="p-5 ring-2 ring-blue-500/50 rounded font-fira-sans-condensed">
+      <div
+        data-testid="container-content"
+        className="p-5 ring-2 ring-blue-500/50 rounded font-fira-sans-condensed"
+      >
         <section className="flex items-center justify-between mb-3">
-          <h1 className="underline underline-offset-4 text-lg">{title}</h1>
+          <h1 data-testid="container-title" className="underline underline-offset-4 text-lg">
+            {title}
+          </h1>
 
           {current &&
             (prev ? (

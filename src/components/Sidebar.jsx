@@ -15,7 +15,7 @@ const Sidebar = ({ children }) => {
               ${expanded ? 'w-52 mr-2' : 'w-0 mr-0'}
             `}
           >
-            <Logo />
+            <Logo data-testid="logo" />
           </span>
 
           <button

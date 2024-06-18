@@ -6,7 +6,7 @@ const Container = ({ title, breadcrumb, children, breadcrumbButton = null }) => 
   const { home, prev, current } = breadcrumb
 
   return (
-    <div className="flex-1 p-2 transition duration-300">
+    <div className="flex-1 p-2 pt-0 md:pt-2 transition duration-300">
       <Breadcrumb {...breadcrumb} rightButton={breadcrumbButton} />
 
       <div

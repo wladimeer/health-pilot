@@ -11,7 +11,7 @@ const Admin = () => {
 
   return (
     <Container title={translate('title')} breadcrumb={breadcrumb}>
-      <section className="grid grid-cols-3 gap-5 select-none">
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-5 select-none">
         {submenus.map(({ key, path, title, icon, description, redirect }) => (
           <div
             className="rounded-md overflow-hidden p-3 group/card transition duration-300 bg-sky-100 hover:bg-sky-200"

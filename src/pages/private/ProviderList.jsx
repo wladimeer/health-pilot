@@ -111,9 +111,10 @@ const ProviderList = () => {
     <>
       <Modal
         size="5xl"
+        radius='sm'
         placement="top"
         backdrop="blur"
-        scrollBehavior="inside"
+        isDismissable={false}
         onClose={onClose}
         isOpen={isOpen}
       >
@@ -126,9 +127,9 @@ const ProviderList = () => {
               aria-label="options"
             >
               <Tab title={translate('modal.tabs.provider')} key="provider">
-                <Card>
+                <Card radius='sm'>
                   <CardBody className="flex-col flex-wrap gap-2">
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                       <Select
                         isDisabled
                         variant="bordered"
@@ -166,7 +167,7 @@ const ProviderList = () => {
                       size="md"
                     />
 
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                       <Input
                         isReadOnly
                         variant="bordered"

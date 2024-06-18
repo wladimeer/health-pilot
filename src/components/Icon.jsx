@@ -5,9 +5,9 @@ import { HiOutlineViewList, HiOutlinePencilAlt, HiX } from 'react-icons/hi'
 import { HiChevronDoubleLeft, HiChevronDoubleRight, HiHome } from 'react-icons/hi'
 import { cloneElement } from 'react'
 
-const Icon = ({ icon, size = 5, isButton = false }) => {
+const Icon = ({ icon, size = 5, isButton = false, color = 'black' }) => {
   const ICONS = {
-    hiChartPie: <HiChartPie className="" />,
+    hiChartPie: <HiChartPie />,
     hiCog: <HiCog />,
     hiUserGroup: <HiUserGroup />,
     hiDeviceMobile: <HiDeviceMobile />,
@@ -28,6 +28,7 @@ const Icon = ({ icon, size = 5, isButton = false }) => {
   const iconElement = ICONS[icon]
 
   return cloneElement(iconElement, {
+    color: color,
     className: `w-${size} h-${size} ${isButton && 'cursor-pointer'}`,
     'data-testid': icon
   })

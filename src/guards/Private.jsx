@@ -9,7 +9,7 @@ const Private = () => {
   const { pathname } = useLocation()
 
   return isUserValid ? (
-    <div className="flex h-screen">
+    <div className="flex flex-col md:flex-row h-max">
       <AppSidebar />
       <Outlet />
     </div>

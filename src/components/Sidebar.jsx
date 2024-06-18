@@ -6,13 +6,13 @@ const Sidebar = ({ children }) => {
   const { expanded, updateExpanded } = useSidebar()
 
   return (
-    <aside className="h-screen font-fira-sans-condensed">
+    <aside className="md:h-dvh font-fira-sans-condensed">
       <nav className="h-full flex flex-col bg-white border-r shadow-sm">
-        <div className="p-4 pb-2 flex justify-between items-center">
+        <div className="p-3 md:p-4 md:pb-2 flex justify-between items-center">
           <span
             className={`
               overflow-hidden transition-all
-              ${expanded ? 'w-52 mr-2' : 'w-0 mr-0'}
+              ${expanded ? 'w-52 mr-2' : 'md:w-0 mr-0'}
             `}
           >
             <Logo data-testid="logo" />
@@ -30,7 +30,9 @@ const Sidebar = ({ children }) => {
           </button>
         </div>
 
-        <ul className="flex-1 px-3">{children}</ul>
+        <ul className={`${!expanded && 'hidden'} pb-3 px-3 md:flex-1 md:block md:pb-0`}>
+          {children}
+        </ul>
       </nav>
     </aside>
   )

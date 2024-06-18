@@ -40,7 +40,7 @@ const ProviderList = () => {
       'code',
       'state'
     ],
-    users: ['userIdentification', 'userName', 'gender', 'state', 'birthdate']
+    users: ['username', 'fullName', 'gender', 'state', 'birthdate']
   }
 
   const actionsFunctions = {

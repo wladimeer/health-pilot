@@ -2,6 +2,8 @@ import axios from 'axios'
 import { SERVER, HOLDING_PATH, PROVIDER_PATH, AUTH_PATH } from '../constants/paths'
 import { EXCEPTION_STATUS } from '../constants/states'
 
+axios.defaults.withCredentials = true
+
 // Holding Endpoints
 const getAllHoldings = async () => {
   const REQUEST_URL = `${SERVER}/${HOLDING_PATH}/all`

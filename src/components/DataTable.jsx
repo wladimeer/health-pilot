@@ -8,7 +8,7 @@ import { Tooltip } from '@nextui-org/react'
 import { useState } from 'react'
 import Icon from './Icon'
 
-const DataTable = ({ columns, data, actions, noDataMessage, entityId, elementQuantity }) => {
+const DataTable = ({ columns, data, actions, noDataMessage, entityId }) => {
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: DEFAULT_ELEMENT_QUANTITY
@@ -25,6 +25,7 @@ const DataTable = ({ columns, data, actions, noDataMessage, entityId, elementQua
   return (
     <div className="font-fira-sans-condensed">
       <Table
+        radius='sm'
         aria-label="table"
         bottomContent={
           <>

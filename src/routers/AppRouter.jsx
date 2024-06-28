@@ -7,7 +7,7 @@ import { ADMIN_PAGE_PATH, HOLDING_PAGE_PATH } from '../constants/paths'
 import { DASHBOARD_PAGE_PATH } from '../constants/paths'
 import HoldingList from '../pages/private/HoldingList'
 import DeviceList from '../pages/private/DeviceList'
-import Dashboard from '../pages/private/Dashboard'
+import Dashboard from '../pages/public/Dashboard'
 import Admin from '../pages/private/Admin'
 import Private from '../guards/Private'
 

@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next'
 import { useAuth } from '../contexts/Auth'
 
 const Login = ({ isOpen, onOpenChange }) => {
-  const [translate] = useTranslation(LOGIN_MODAL_KEY)
+  const [translation] = useTranslation(LOGIN_MODAL_KEY)
   const { updateUserData } = useAuth()
   const navigate = useNavigate()
 
@@ -22,11 +22,11 @@ const Login = ({ isOpen, onOpenChange }) => {
     const errors = {}
 
     if (!username) {
-      errors.username = translate('form.errors.text.empty.username')
+      errors.username = translation('form.errors.text.empty.username')
     }
 
     if (!password) {
-      errors.password = translate('form.errors.text.empty.password')
+      errors.password = translation('form.errors.text.empty.password')
     }
 
     return errors
@@ -34,7 +34,7 @@ const Login = ({ isOpen, onOpenChange }) => {
 
   const handleSubmit = async ({ username, password }) => {
     if ([username, password].includes('')) {
-      toast(translate('form.submissions.text.empty'), { type: 'warning' })
+      toast(translation('form.submissions.text.empty'), { type: 'warning' })
     } else {
       const response = await signIn(username, password)
 
@@ -52,11 +52,11 @@ const Login = ({ isOpen, onOpenChange }) => {
       }
 
       if (response?.status === EXCEPTION_STATUS) {
-        toast(translate('form.responses.text.exception'), { type: 'error' })
+        toast(translation('form.responses.text.exception'), { type: 'error' })
       }
 
       if (response?.status === ERROR_STATUS) {
-        toast(translate('form.responses.text.error'), { type: 'warning' })
+        toast(translation('form.responses.text.error'), { type: 'warning' })
       }
     }
   }
@@ -74,13 +74,13 @@ const Login = ({ isOpen, onOpenChange }) => {
           >
             {({ values, errors, touched, handleChange, handleSubmit, isSubmitting }) => (
               <>
-                <ModalHeader className="flex flex-col gap-1">{translate('title')}</ModalHeader>
+                <ModalHeader className="flex flex-col gap-1">{translation('title')}</ModalHeader>
 
                 {isSubmitting ? (
                   <ModalBody className="py-4">
                     <CircularProgress
                       className="max-w-md"
-                      label={translate('form.submissions.text.loading')}
+                      label={translation('form.submissions.text.loading')}
                       isIndeterminate
                       size="md"
                     />
@@ -91,8 +91,8 @@ const Login = ({ isOpen, onOpenChange }) => {
                       <Input
                         type="text"
                         name="username"
-                        label={translate('form.labels.text.username')}
-                        placeholder={translate('form.labels.placeholder.username')}
+                        label={translation('form.labels.text.username')}
+                        placeholder={translation('form.labels.placeholder.username')}
                         onKeyUp={({ code }) => ENTER_KEYS.includes(code) && handleSubmit()}
                         onChange={handleChange}
                         value={values.username}
@@ -107,8 +107,8 @@ const Login = ({ isOpen, onOpenChange }) => {
                       <Input
                         type="text"
                         name="password"
-                        label={translate('form.labels.text.password')}
-                        placeholder={translate('form.labels.placeholder.password')}
+                        label={translation('form.labels.text.password')}
+                        placeholder={translation('form.labels.placeholder.password')}
                         onKeyUp={({ code }) => ENTER_KEYS.includes(code) && handleSubmit()}
                         onChange={handleChange}
                         value={values.password}
@@ -123,7 +123,7 @@ const Login = ({ isOpen, onOpenChange }) => {
 
                     <ModalFooter>
                       <Button color="danger" onPress={onClose} variant="ghost">
-                        {translate('form.buttons.text.close')}
+                        {translation('form.buttons.text.close')}
                       </Button>
 
                       <Button
@@ -133,7 +133,7 @@ const Login = ({ isOpen, onOpenChange }) => {
                         variant="ghost"
                         type="submit"
                       >
-                        {translate('form.buttons.text.login')}
+                        {translation('form.buttons.text.login')}
                       </Button>
                     </ModalFooter>
                   </>

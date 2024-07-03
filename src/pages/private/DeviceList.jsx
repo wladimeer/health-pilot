@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
 
 const DeviceList = () => {
-  const [translate] = useTranslation(DEVICE_LIST_PAGE_KEY)
+  const [translation] = useTranslation(DEVICE_LIST_PAGE_KEY)
 
   const [isLoading, setIsLoading] = useState(true)
   const [mainTable, setMainTable] = useState({})
@@ -52,7 +52,7 @@ const DeviceList = () => {
         pageKey: DEVICE_LIST_PAGE_KEY,
         tableKeys: tableKeys,
         tableValues: tableValues,
-        translation: translate
+        translation: translation
       }
 
       const generatedTable = generateTableStructure(schema)
@@ -65,7 +65,7 @@ const DeviceList = () => {
   }, [])
 
   return (
-    <Container title={translate('title')} breadcrumb={breadcrumb}>
+    <Container title={translation('title')} breadcrumb={breadcrumb}>
       {isLoading ? (
         <Card>
           <CardBody>

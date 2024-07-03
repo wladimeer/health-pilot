@@ -14,7 +14,7 @@ const HoldingList = () => {
   const navigate = useNavigate()
 
   const [isLoading, setIsLoading] = useState(true)
-  const [translate] = useTranslation(HOLDING_LIST_PAGE_KEY)
+  const [translation] = useTranslation(HOLDING_LIST_PAGE_KEY)
   const [mainTable, setMainTable] = useState({})
 
   const { breadcrumb } = getConfig(HOLDING_LIST_PAGE_KEY)
@@ -38,7 +38,7 @@ const HoldingList = () => {
         tableKeys: data.keys,
         tableValues: data.values,
         actionsFunctions: actionsFunctions,
-        translation: translate
+        translation: translation
       }
 
       if (existActions) schema['actionsKeys'] = data.actions
@@ -53,7 +53,7 @@ const HoldingList = () => {
   }, [])
 
   return (
-    <Container title={translate('title')} breadcrumb={breadcrumb}>
+    <Container title={translation('title')} breadcrumb={breadcrumb}>
       {isLoading ? (
         <Card>
           <CardBody>

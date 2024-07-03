@@ -19,7 +19,7 @@ const ProviderList = () => {
   const { holdingId } = useParams()
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const [translate] = useTranslation(PROVIDER_LIST_PAGE_KEY)
+  const [translation] = useTranslation(PROVIDER_LIST_PAGE_KEY)
   const [disabledTabsKeys, setDisabledTabsKeys] = useState([])
   const [modalData, setModalData] = useState({})
 
@@ -74,7 +74,7 @@ const ProviderList = () => {
         tableKeys: data.keys,
         tableValues: data.values,
         actionsFunctions: actionsFunctions,
-        translation: translate
+        translation: translation
       }
 
       if (existActions) schema['actionsKeys'] = data.actions
@@ -98,7 +98,7 @@ const ProviderList = () => {
         pageKey: PROVIDER_LIST_PAGE_KEY,
         tableKeys: keys,
         tableValues: data,
-        translation: translate
+        translation: translation
       }
 
       const generatedTable = generateTableStructure(schema)
@@ -119,21 +119,21 @@ const ProviderList = () => {
         isOpen={isOpen}
       >
         <ModalContent>
-          <ModalHeader className="flex flex-col gap-1">{translate('modal.modify')}</ModalHeader>
+          <ModalHeader className="flex flex-col gap-1">{translation('modal.modify')}</ModalHeader>
           <ModalBody>
             <Tabs
               disabledKeys={disabledTabsKeys}
               onSelectionChange={(tabKey) => loadInsideTable(tabKey)}
               aria-label="options"
             >
-              <Tab title={translate('modal.tabs.provider')} key="provider">
+              <Tab title={translation('modal.tabs.provider')} key="provider">
                 <Card radius='sm'>
                   <CardBody className="flex-col flex-wrap gap-2">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                       <Select
                         isDisabled
                         variant="bordered"
-                        label={translate('select.holding')}
+                        label={translation('select.holding')}
                         defaultSelectedKeys={['holdingName']}
                         className="shrink"
                         radius="sm"
@@ -147,7 +147,7 @@ const ProviderList = () => {
                       <Input
                         isReadOnly
                         variant="bordered"
-                        label={translate('inputs.identification')}
+                        label={translation('inputs.identification')}
                         defaultValue={modalData.providerIdentification}
                         className="shrink"
                         type="text"
@@ -159,7 +159,7 @@ const ProviderList = () => {
                     <Input
                       // isClearable
                       variant="bordered"
-                      label={translate('inputs.name')}
+                      label={translation('inputs.name')}
                       defaultValue={modalData.providerName}
                       className="w-auto"
                       type="text"
@@ -171,7 +171,7 @@ const ProviderList = () => {
                       <Input
                         isReadOnly
                         variant="bordered"
-                        label={translate('inputs.country')}
+                        label={translation('inputs.country')}
                         defaultValue={modalData.countryName}
                         className="w-auto"
                         type="text"
@@ -181,7 +181,7 @@ const ProviderList = () => {
 
                       <Input
                         variant="bordered"
-                        label={translate('inputs.subdomain')}
+                        label={translation('inputs.subdomain')}
                         defaultValue={modalData.providerSubdomain}
                         className="w-auto"
                         type="text"
@@ -193,19 +193,19 @@ const ProviderList = () => {
                 </Card>
               </Tab>
 
-              <Tab title={translate('modal.tabs.branchOffices')} key="branchOffices">
+              <Tab title={translation('modal.tabs.branchOffices')} key="branchOffices">
                 {modalData.branchOffices && <DataTable {...insideTable} />}
               </Tab>
 
-              <Tab title={translate('modal.tabs.attentionPlaces')} key="attentionPlaces">
+              <Tab title={translation('modal.tabs.attentionPlaces')} key="attentionPlaces">
                 {modalData.attentionPlaces && <DataTable {...insideTable} />}
               </Tab>
 
-              <Tab title={translate('modal.tabs.attentionPoints')} key="attentionPoints">
+              <Tab title={translation('modal.tabs.attentionPoints')} key="attentionPoints">
                 {modalData.attentionPoints && <DataTable {...insideTable} />}
               </Tab>
 
-              <Tab title={translate('modal.tabs.users')} key="users">
+              <Tab title={translation('modal.tabs.users')} key="users">
                 {modalData.users && <DataTable {...insideTable} />}
               </Tab>
             </Tabs>
@@ -213,7 +213,7 @@ const ProviderList = () => {
         </ModalContent>
       </Modal>
 
-      <Container title={translate('title')} breadcrumb={breadcrumb}>
+      <Container title={translation('title')} breadcrumb={breadcrumb}>
         {isLoading ? (
           <Card>
             <CardBody>

@@ -6,11 +6,11 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 const Admin = () => {
-  const [translate] = useTranslation(ADMIN_PAGE_KEY)
+  const [translation] = useTranslation(ADMIN_PAGE_KEY)
   const { breadcrumb, submenus } = getConfig(ADMIN_PAGE_KEY, true)
 
   return (
-    <Container title={translate('title')} breadcrumb={breadcrumb}>
+    <Container title={translation('title')} breadcrumb={breadcrumb}>
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-5 select-none">
         {submenus.map(({ key, path, title, icon, description, redirect }) => (
           <div

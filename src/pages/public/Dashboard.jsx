@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 import Login from '../../modals/Login'
 
 const Dashboard = ({ socket, isConnected }) => {
-  const [translate] = useTranslation(DASHBOARD_PAGE_KEY)
+  const [translation] = useTranslation(DASHBOARD_PAGE_KEY)
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const { isUserValid } = useAuth()
 
@@ -36,7 +36,7 @@ const Dashboard = ({ socket, isConnected }) => {
   const handleFonasaAll = (socketData) => {
     const generatedCard = generateCardStructure({
       data: socketData,
-      translation: translate
+      translation: translation
     })
 
     setMainCard(generatedCard.data)
@@ -47,7 +47,7 @@ const Dashboard = ({ socket, isConnected }) => {
     return (
       !isUserValid && (
         <Button variant="ghost" color="primary" onClick={onOpen}>
-          {translate('breadcrumb.button.login')}
+          {translation('breadcrumb.button.login')}
         </Button>
       )
     )
@@ -69,7 +69,7 @@ const Dashboard = ({ socket, isConnected }) => {
 
   return (
     <Container
-      title={translate('title')}
+      title={translation('title')}
       breadcrumb={breadcrumb}
       breadcrumbButton={<BreadcrumbButton />}
     >
@@ -114,7 +114,7 @@ const Dashboard = ({ socket, isConnected }) => {
           ))}
         </div>
       ) : (
-        <Indication message={translate('page.noData')} />
+        <Indication message={translation('page.noData')} />
       )}
     </Container>
   )

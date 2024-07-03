@@ -2,5 +2,13 @@
   "dashboardPage": "Panel",
   "adminPage": "Administración",
   "holdingListPage": "Mantenedores",
-  "deviceListPage": "Dispositivos"
+  "deviceListPage": "Dispositivos",
+  "logout": "Cerrar Sesión",
+  "responses": {
+    "text": {
+      "success": "Sesión cerrada con éxito",
+      "exception": "Se produjo un error al procesar la solicitud",
+      "error": "No fue posible cerrar sesión"
+    }
+  }
 }

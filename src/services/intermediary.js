@@ -59,4 +59,25 @@ const signIn = async (username, password) => {
   }
 }
 
-export { getAllHoldings, findProvidersByHoldingId, findProviderById, signIn }
+const signOut = async (username) => {
+  const REQUEST_URL = `${SERVER}/${AUTH_PATH}/logout`
+
+  const DATA = { username }
+
+  let response = {}
+
+  try {
+    const { data } = await axios.post(REQUEST_URL, DATA)
+    response = data
+  } catch ({ message }) {
+    response = {
+      status: EXCEPTION_STATUS,
+      message: message,
+      data: {}
+    }
+  } finally {
+    return response
+  }
+}
+
+export { getAllHoldings, findProvidersByHoldingId, findProviderById, signIn, signOut }

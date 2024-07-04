@@ -7,8 +7,21 @@ axios.defaults.withCredentials = true
 // Holding Endpoints
 const getAllHoldings = async () => {
   const REQUEST_URL = `${SERVER}/${HOLDING_PATH}/all`
-  const { data } = await axios.get(REQUEST_URL)
-  return await data
+
+  let response = {}
+
+  try {
+    const { data } = await axios.get(REQUEST_URL)
+    response = data
+  } catch ({ message }) {
+    response = {
+      status: EXCEPTION_STATUS,
+      message: message,
+      data: {}
+    }
+  } finally {
+    return response
+  }
 }
 
 // Provider Endpoints
@@ -19,8 +32,20 @@ const findProviderById = async (providerId) => {
     provider_id: providerId
   }
 
-  const { data } = await axios.post(REQUEST_URL, DATA)
-  return await data
+  let response = {}
+
+  try {
+    const { data } = await axios.post(REQUEST_URL, DATA)
+    response = data
+  } catch ({ message }) {
+    response = {
+      status: EXCEPTION_STATUS,
+      message: message,
+      data: {}
+    }
+  } finally {
+    return response
+  }
 }
 
 const findProvidersByHoldingId = async (holdingId) => {
@@ -30,8 +55,20 @@ const findProvidersByHoldingId = async (holdingId) => {
     holding_id: holdingId
   }
 
-  const { data } = await axios.post(REQUEST_URL, DATA)
-  return data
+  let response = {}
+
+  try {
+    const { data } = await axios.post(REQUEST_URL, DATA)
+    response = data
+  } catch ({ message }) {
+    response = {
+      status: EXCEPTION_STATUS,
+      message: message,
+      data: {}
+    }
+  } finally {
+    return response
+  }
 }
 
 // Auth Endpoints

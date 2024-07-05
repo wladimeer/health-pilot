@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useSidebar } from '../contexts/Sidebar'
 
-const SidebarItem = ({ icon, text, active, to = null }) => {
+const LinkSidebarItem = ({ icon, text, active, to = null }) => {
   const { expanded } = useSidebar()
 
   return (
     <Link
       className={`
         relative flex items-center py-2 px-3 my-1 font-medium rounder-md
-        cursor-pointer transition-colors group/item
+        cursor-pointer transition-colors group/item h-10
         ${
           active
             ? 'bg-gradient-to-tr from-gray-200 to-gray-100 text-gray-800'
@@ -20,7 +20,7 @@ const SidebarItem = ({ icon, text, active, to = null }) => {
       {icon}
       <span
         className={`
-          overflow-hidden transition-all ${expanded ? 'w-52 ml-3' : 'w-0'}
+          overflow-hidden transition-all text-nowrap ${expanded ? 'w-52 ml-3' : 'w-0'}
         `}
       >
         {text}
@@ -29,11 +29,11 @@ const SidebarItem = ({ icon, text, active, to = null }) => {
       {!expanded && (
         <div
           className={`
-            z-10 absolute left-full rounded-md px-2 py-1 ml-4
-            bg-gray-800 text-gray-100 text-sm
-            transition-all invisible opacity-20 -translate-x-3
-            group-hover/item:visible group-hover/item:opacity-100
-            group-hover/item:translate-x-0
+            z-50 absolute left-10 rounded-md px-2 py-1
+            bg-gray-800 text-gray-100 text-sm text-nowrap
+            transition-all invisible opacity-25 duration-300
+            group-hover/item:visible group-hover/item:left-14
+            group-hover/item:opacity-100 whitespace-nowrap
           `}
         >
           {text}
@@ -43,4 +43,4 @@ const SidebarItem = ({ icon, text, active, to = null }) => {
   )
 }
 
-export default SidebarItem
+export default LinkSidebarItem

@@ -16,6 +16,14 @@ vi.mock('react-i18next', () => ({
   useTranslation: () => [(key) => key]
 }))
 
+vi.mock('../contexts/Auth', () => ({
+  useAuth: () => ({
+    userData: { username: 'default', sessionId: 'a5001623-9007-47f5-a2b4-1bf505ab057d', password: 'default'},
+    updateUserData: () => {},
+    isUserValid: false
+  })
+}))
+
 describe('AppSidebar', () => {
   render(
     <MemoryRouter>

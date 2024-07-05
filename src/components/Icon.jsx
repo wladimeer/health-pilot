@@ -3,6 +3,7 @@ import { HiOutlineMinusSm, HiOutlinePlusSm, HiChevronRight } from 'react-icons/h
 import { HiArrowSmLeft, HiArrowSmRight, HiChevronLeft } from 'react-icons/hi'
 import { HiOutlineViewList, HiOutlinePencilAlt, HiX } from 'react-icons/hi'
 import { HiChevronDoubleLeft, HiChevronDoubleRight, HiHome } from 'react-icons/hi'
+import { HiOutlineLogout } from 'react-icons/hi'
 import { cloneElement } from 'react'
 
 const Icon = ({ icon, size = 5, isButton = false, color = 'black' }) => {
@@ -22,7 +23,8 @@ const Icon = ({ icon, size = 5, isButton = false, color = 'black' }) => {
     hiX: <HiX />,
     hiOutlineMinusSm: <HiOutlineMinusSm />,
     hiOutlinePlusSm: <HiOutlinePlusSm />,
-    hiHome: <HiHome />
+    hiHome: <HiHome />,
+    hiOutlineLogout: <HiOutlineLogout />
   }
 
   const iconElement = ICONS[icon]

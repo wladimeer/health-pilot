@@ -21,7 +21,7 @@
       "inactiveState": "Inactivo",
       "noState": "Sin Estado"
     },
-    "noDataMessage": "No se obtuvieron datos"
+    "noDataMessage": "No se obtuvieron datos :("
   },
   "select": {
     "elementQuantity": "Selecciona Cantidad de Elementos"

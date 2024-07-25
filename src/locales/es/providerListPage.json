@@ -2,32 +2,14 @@
   "title": "Prestadores",
   "breadcrumb": {
     "home": "Administración",
-    "prev": "Mantenedores",
+    "first": "Mantenedores",
     "current": "Prestadores"
   },
   "table": {
     "columns": {
-      "personId": "ID Persona",
-      "providerId": "ID Prestador",
-      "providerIdentification": "Identificación Prestador",
-      "providerName": "Nombre Prestador",
-      "providerCreatedDate": "Fecha Creación",
-      "providerUpdatedDate": "Fecha Actualización",
-      "branchOfficeId": "ID Sucursal",
-      "branchOfficeName": "Nombre Sucursal",
-      "branchOfficeIdentification": "Identificación Sucursal",
-      "attentionPlaceId": "ID Lugar de Atención",
-      "attentionPlaceName": "Nombre Lugar de Atención",
-      "attentionPointId": "ID Punto de Atención",
-      "attentionPointName": "Nombre Punto de Atención",
-      "userId": "ID Usuario",
-      "username": "Identificación Usuario",
-      "fullName": "Nombre Usuario",
-      "birthdate": "Fecha de Nacimiento",
-      "gender": "Género",
-      "code": "Código",
-      "urgency": "Urgencia",
-      "state": "Estado",
+      "providerId": "ID",
+      "providerIdentification": "Identificación",
+      "providerName": "Nombre",
       "actions": "Acciones"
     },
     "data": {
@@ -44,26 +26,6 @@
       "viewList": "Ver Lista",
       "modify": "Modificar"
     },
-    "noDataMessage": "No se obtuvieron datos"
-  },
-  "modal": {
-    "modify": "Modificación",
-    "tabs": {
-      "provider": "Prestador",
-      "branchOffices": "Sucursales",
-      "attentionPlaces": "Lugares de Atención",
-      "attentionPoints": "Puntos de Atención",
-      "users": "Usuarios"
-    }
-  },
-  "select": {
-    "elementQuantity": "Selecciona Cantidad de Elementos",
-    "holding": "Mantenedor"
-  },
-  "inputs": {
-    "identification": "Identificación",
-    "name": "Nombre",
-    "subdomain": "Subdominio",
-    "country": "País"
+    "noDataMessage": "No se obtuvieron datos :("
   }
 }

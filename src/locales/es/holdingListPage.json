@@ -8,12 +8,9 @@
   },
   "table": {
     "columns": {
-      "personId": "ID Persona",
-      "holdingId": "ID Mantenedor",
-      "holdingIdentification": "Identificación Mantenedor",
-      "holdingName": "Nombre Mantenedor",
-      "holdingCreatedDate": "Fecha Creación",
-      "holdingUpdatedDate": "Fecha Modificación",
+      "holdingId": "ID",
+      "holdingIdentification": "Identificación",
+      "holdingName": "Nombre",
       "actions": "Acciones"
     },
     "data": {
@@ -23,7 +20,7 @@
       "viewList": "Ver Lista",
       "modify": "Modificar"
     },
-    "noDataMessage": "No se obtuvieron datos"
+    "noDataMessage": "No se obtuvieron datos :("
   },
   "select": {
     "elementQuantity": "Selecciona Cantidad de Elementos"

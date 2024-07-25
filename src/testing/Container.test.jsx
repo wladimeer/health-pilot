@@ -11,7 +11,7 @@ describe('Container', () => {
         title: 'HomePage',
         path: '/home'
       },
-      prev: {
+      first: {
         title: 'PreviousPage',
         path: '/home/previous'
       },

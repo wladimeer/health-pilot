@@ -1,9 +1,11 @@
 import { useSocket } from '../contexts/Socket'
-import { DEVICE_PAGE_PATH } from '../constants/paths'
+import { DEVICE_LIST_PAGE_PATH } from '../constants/paths'
 import ProviderList from '../pages/private/ProviderList'
-import { NO_PATH, PROVIDER_PAGE_PATH } from '../constants/paths'
+import { NO_PATH, PROVIDER_LIST_PAGE_PATH } from '../constants/paths'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { ADMIN_PAGE_PATH, HOLDING_PAGE_PATH } from '../constants/paths'
+import { ADMIN_PAGE_PATH, HOLDING_LIST_PAGE_PATH } from '../constants/paths'
+import { PROVIDER_MODIFY_PAGE_PATH } from '../constants/paths'
+import ProviderModify from '../pages/private/ProviderModify'
 import { DASHBOARD_PAGE_PATH } from '../constants/paths'
 import HoldingList from '../pages/private/HoldingList'
 import DeviceList from '../pages/private/DeviceList'
@@ -33,16 +35,20 @@ const AppRouter = () => {
               index: true
             },
             {
-              path: HOLDING_PAGE_PATH,
+              path: HOLDING_LIST_PAGE_PATH,
               element: <HoldingList />
             },
             {
-              path: PROVIDER_PAGE_PATH,
+              path: PROVIDER_LIST_PAGE_PATH,
               element: <ProviderList />
             },
             {
-              path: DEVICE_PAGE_PATH,
+              path: DEVICE_LIST_PAGE_PATH,
               element: <DeviceList />
+            },
+            {
+              path: PROVIDER_MODIFY_PAGE_PATH,
+              element: <ProviderModify />
             }
           ]
         }

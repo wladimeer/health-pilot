@@ -100,10 +100,10 @@ const DataTable = ({ columns, data, actions, noDataMessage, entityId }) => {
                           content={title}
                         >
                           <span
-                            className={`text-${color}-500 opacity-50 hover:opacity-100`}
+                            className='opacity-50 hover:opacity-100'
                             onClick={() => func(cellRest.row.getValue(entityId))}
                           >
-                            <Icon icon={icon} size={6} isButton />
+                            <Icon icon={icon} size={6} isButton color={color} />
                           </span>
                         </Tooltip>
                       ))}

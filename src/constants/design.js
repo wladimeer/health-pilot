@@ -21,8 +21,8 @@ const ENTITIES_ID = {
 }
 
 const ACTION_ICON_KEY = {
-  viewList: { icon: 'hiOutlineViewList', color: 'default' },
-  modify: { icon: 'hiOutlinePencilAlt', color: 'yellow' }
+  viewList: { icon: 'hiOutlineViewList', color: '#64748B' },
+  modify: { icon: 'hiOutlinePencilAlt', color: '#EAB308' }
 }
 
 const MILLISECOND_INDICATOR = 'ms'

@@ -1,0 +1,60 @@
+{
+    "title": "Modificación Prestador",
+    "breadcrumb": {
+      "home": "Administración",
+      "first": "Mantenedores",
+      "second": "Prestadores",
+      "current": "Modificación Prestador"
+    },
+    "tabs": {
+      "provider": "Prestador",
+      "branchOffices": "Sucursales",
+      "attentionPlaces": "Lugares de Atención",
+      "attentionPoints": "Puntos de Atención",
+      "users": "Usuarios"
+    },
+    "select": {
+      "elementQuantity": "Selecciona Cantidad de Elementos",
+      "holding": "Mantenedor"
+    },
+    "inputs": {
+      "identification": "Identificación",
+      "name": "Nombre",
+      "subdomain": "Subdominio",
+      "country": "País"
+    },
+    "table": {
+    "columns": {
+      "branchOfficeId": "ID",
+      "branchOfficeName": "Nombre",
+      "branchOfficeIdentification": "Identificación",
+      "attentionPlaceId": "ID",
+      "attentionPlaceName": "Nombre",
+      "attentionPointId": "ID",
+      "attentionPointName": "Nombre",
+      "userId": "ID",
+      "username": "Identificación",
+      "userFullName": "Nombre",
+      "gender": "Género",
+      "code": "Código",
+      "urgency": "Urgencia",
+      "state": "Estado",
+      "actions": "Acciones"
+    },
+    "data": {
+      "activeState": "Activo",
+      "inactiveState": "Inactivo",
+      "noState": "Sin Estado",
+      "activeUrgency": "Si",
+      "inactiveUrgency": "No",
+      "noUrgency": "Sin Urgencia",
+      "female": "Femenino",
+      "male": "Masculino",
+      "noGender": "Sin Género",
+      "noData": "Sin Dato",
+      "viewList": "Ver Lista",
+      "modify": "Modificar"
+    },
+    "noDataMessage": "No se obtuvieron datos :( :("
+  }
+  }

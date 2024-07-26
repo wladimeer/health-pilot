@@ -1,9 +1,14 @@
 import Breadcrumb from './Breadcrumb'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Icon from './Icon'
 
 const Container = ({ title, breadcrumb, children, breadcrumbButton = null }) => {
-  const { home, prev, current } = breadcrumb
+  const { current } = breadcrumb
+  const navigate = useNavigate()
+
+  const handleGoBack = () => {
+    navigate(-1)
+  }
 
   return (
     <div className="flex-1 p-2 pt-0 md:pt-2 transition duration-300">
@@ -18,16 +23,11 @@ const Container = ({ title, breadcrumb, children, breadcrumbButton = null }) => 
             {title}
           </h1>
 
-          {current &&
-            (prev ? (
-              <Link to={prev.path}>
-                <Icon icon="hiChevronLeft" size={7} />
-              </Link>
-            ) : (
-              <Link to={home.path}>
-                <Icon icon="hiChevronLeft" size={7} />
-              </Link>
-            ))}
+          {current && (
+            <Link onClick={handleGoBack}>
+              <Icon icon="hiChevronLeft" size={7} />
+            </Link>
+          )}
         </section>
 
         {children}

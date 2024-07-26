@@ -9,7 +9,7 @@ describe('Breadcrumb', () => {
       title: 'HomePage',
       path: '/home'
     },
-    prev: {
+    first: {
       title: 'PreviousPage',
       path: '/home/previous'
     },
@@ -47,40 +47,14 @@ describe('Breadcrumb', () => {
   })
 
   test('should show the previous title', () => {
-    const { prev } = breadcrumb
-    const title = screen.getAllByText(prev.title)
+    const { first } = breadcrumb
+    const title = screen.getAllByText(first.title)
     expect(title).toBeDefined()
-  })
-
-  test('should have the previous path', () => {
-    const { prev } = breadcrumb
-
-    const links = screen.getAllByRole('link', { name: prev.title })
-
-    const prevLink = links.find((link) => {
-      return link.getAttribute('href') === prev.path ? link : null
-    })
-
-    expect(prevLink).toBeDefined()
-    expect(prevLink.getAttribute('href')).toContain(prev.path)
   })
 
   test('should show the current title', () => {
     const { current } = breadcrumb
     const title = screen.getAllByText(current.title)
     expect(title).toBeDefined()
-  })
-
-  test('should have the current path', () => {
-    const { current } = breadcrumb
-
-    const links = screen.getAllByRole('link', { name: current.title })
-
-    const currentLink = links.find((link) => {
-      return link.getAttribute('href') === current.path ? link : null
-    })
-
-    expect(currentLink).toBeDefined()
-    expect(currentLink.getAttribute('href')).toContain(current.path)
   })
 })

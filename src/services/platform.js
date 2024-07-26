@@ -1,4 +1,5 @@
-import { HOLDING_PAGE_PATH, DEVICE_PAGE_PATH, PROVIDER_PAGE_PATH } from '../constants/paths'
+import { PROVIDER_MODIFY_PAGE_KEY } from '../constants/pages'
+import { HOLDING_LIST_PAGE_PATH, DEVICE_LIST_PAGE_PATH } from '../constants/paths'
 import { DASHBOARD_PAGE_KEY, ADMIN_PAGE_KEY, PROVIDER_LIST_PAGE_KEY } from '../constants/pages'
 import { HOLDING_LIST_PAGE_KEY, DEVICE_LIST_PAGE_KEY } from '../constants/pages'
 import { DASHBOARD_PAGE_PATH, ADMIN_PAGE_PATH } from '../constants/paths'
@@ -18,12 +19,12 @@ const MENUS = {
       {
         key: HOLDING_LIST_PAGE_KEY,
         icon: 'hiUserGroup',
-        path: HOLDING_PAGE_PATH
+        path: HOLDING_LIST_PAGE_PATH
       },
       {
         key: DEVICE_LIST_PAGE_KEY,
         icon: 'hiDeviceMobile',
-        path: DEVICE_PAGE_PATH
+        path: DEVICE_LIST_PAGE_PATH
       }
     ]
   }
@@ -46,7 +47,7 @@ const BREADCRUMBS = {
     current: {
       key: 'breadcrumb.current',
       title: null,
-      path: HOLDING_PAGE_PATH
+      path: null
     }
   },
   [DEVICE_LIST_PAGE_KEY]: {
@@ -58,7 +59,7 @@ const BREADCRUMBS = {
     current: {
       key: 'breadcrumb.current',
       title: null,
-      path: DEVICE_PAGE_PATH
+      path: null
     }
   },
   [DASHBOARD_PAGE_KEY]: {
@@ -74,15 +75,37 @@ const BREADCRUMBS = {
       title: null,
       path: ADMIN_PAGE_PATH
     },
-    prev: {
-      key: 'breadcrumb.prev',
+    first: {
+      key: 'breadcrumb.first',
       title: null,
-      path: HOLDING_PAGE_PATH
+      path: null
     },
     current: {
       key: 'breadcrumb.current',
       title: null,
-      path: PROVIDER_PAGE_PATH
+      path: null
+    }
+  },
+  [PROVIDER_MODIFY_PAGE_KEY]: {
+    home: {
+      key: 'breadcrumb.home',
+      title: null,
+      path: ADMIN_PAGE_PATH
+    },
+    first: {
+      key: 'breadcrumb.first',
+      title: null,
+      path: null
+    },
+    second: {
+      key: 'breadcrumb.second',
+      title: null,
+      path: null
+    },
+    current: {
+      key: 'breadcrumb.current',
+      title: null,
+      path: null
     }
   }
 }

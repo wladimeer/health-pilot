@@ -22,6 +22,16 @@
     },
     "noDataMessage": "No se obtuvieron datos :("
   },
+  "load": {
+    "responses": {
+      "text": {
+        "success": "Obtención de mantenedores exitosa",
+        "exception": "Se produjo un error al intentar obtener los mantenedores",
+        "error": "No es posible obtener el listado de mantenedores",
+        "unauthorized": "La sesión caducó, por lo que será redirigido al inicio de sesión"
+      }
+    }
+  },
   "select": {
     "elementQuantity": "Selecciona Cantidad de Elementos"
   }

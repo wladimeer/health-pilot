@@ -7,26 +7,24 @@ const Breadcrumb = ({ home, first, second, current, rightButton = null }) => {
     <div className="flex items-center justify-between my-5 font-fira-sans-condensed md:mt-0">
       <Breadcrumbs data-testid="breadcrumb-content" className="flex gap-2 items-center">
         <BreadcrumbItem data-testid="breadcrumb-item-home" startContent={<Icon icon="hiHome" />}>
-          <Link className="text-lg" to={home.path}>
-            {home.title}
-          </Link>
+          <Link className="text-medium md:text-lg cursor-default">{home.title}</Link>
         </BreadcrumbItem>
 
         {first && (
           <BreadcrumbItem data-testid="breadcrumb-item-first">
-            <Link className="text-lg cursor-default">{first.title}</Link>
+            <Link className="text-medium md:text-lg cursor-default">{first.title}</Link>
           </BreadcrumbItem>
         )}
 
         {second && (
           <BreadcrumbItem data-testid="breadcrumb-item-second">
-            <Link className="text-lg cursor-default">{second.title}</Link>
+            <Link className="text-medium md:text-lg cursor-default">{second.title}</Link>
           </BreadcrumbItem>
         )}
 
         {current && (
           <BreadcrumbItem data-testid="breadcrumb-item-current">
-            <Link className="text-lg cursor-default">{current.title}</Link>
+            <Link className="text-medium md:text-lg cursor-default">{current.title}</Link>
           </BreadcrumbItem>
         )}
       </Breadcrumbs>

@@ -1,19 +1,29 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Container from '../../components/Container'
 import { getConfig } from '../../services/platform'
 import { camelCaseKeys } from '../../services/components'
 import { PROVIDER_MODIFY_PAGE_KEY } from '../../constants/pages'
+import { SUCCESS_STATUS, UNAUTHORIZED_STATUS } from '../../constants/states'
+import { ERROR_STATUS, EXCEPTION_STATUS } from '../../constants/states'
 import { Tabs, Tab, Select, SelectItem, Input } from '@nextui-org/react'
 import { generateTableStructure } from '../../services/components'
 import { PROVIDER_LIST_PAGE_KEY } from '../../constants/pages'
 import { findProviderById } from '../../services/intermediary'
+import { DASHBOARD_PAGE_PATH } from '../../constants/paths'
 import { Card, CardBody, Spinner } from '@nextui-org/react'
+import { useBreakpoint } from '../../contexts/Breakpoint'
 import DataTable from '../../components/DataTable'
 import { useTranslation } from 'react-i18next'
+import { useAuth } from '../../contexts/Auth'
 import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const ProviderModify = () => {
+  const navigate = useNavigate()
   const { providerId } = useParams()
+  const { updateUserData } = useAuth()
+  const { isSmall } = useBreakpoint()
 
   const [translation] = useTranslation(PROVIDER_MODIFY_PAGE_KEY)
 
@@ -33,33 +43,56 @@ const ProviderModify = () => {
     return generateTableStructure(schema)
   }
 
+  const handleCloseSesion = () => {
+    updateUserData()
+    navigate(DASHBOARD_PAGE_PATH)
+  }
+
   useEffect(() => {
     const loadProviderData = async () => {
-      const { data } = await findProviderById(providerId)
-      const [newData] = [await data].map((item) => camelCaseKeys(item))
+      const { data, status } = await findProviderById(providerId)
 
-      const tabs = {
-        provider: {
-          countryId: newData.countryId,
-          countryName: newData.countryName,
-          holdingIdentification: newData.holdingIdentification,
-          holdingName: newData.holdingName,
-          personId: newData.personId,
-          providerCreatedDate: newData.providerCreatedDate,
-          providerId: newData.providerId,
-          providerIdentification: newData.providerIdentification,
-          providerName: newData.providerName,
-          providerSubdomain: newData.providerSubdomain,
-          providerUpdatedDate: newData.providerUpdatedDate
-        },
-        branchOffices: getTableStructure(newData.branchOffices),
-        attentionPlaces: getTableStructure(newData.attentionPlaces),
-        attentionPoints: getTableStructure(newData.attentionPoints),
-        users: getTableStructure(newData.users)
+      if (status === SUCCESS_STATUS) {
+        const [newData] = [await data].map((item) => camelCaseKeys(item))
+
+        const tabs = {
+          provider: {
+            countryId: newData.countryId,
+            countryName: newData.countryName,
+            holdingIdentification: newData.holdingIdentification,
+            holdingName: newData.holdingName,
+            personId: newData.personId,
+            providerCreatedDate: newData.providerCreatedDate,
+            providerId: newData.providerId,
+            providerIdentification: newData.providerIdentification,
+            providerName: newData.providerName,
+            providerSubdomain: newData.providerSubdomain,
+            providerUpdatedDate: newData.providerUpdatedDate
+          },
+          branchOffices: getTableStructure(newData.branchOffices),
+          attentionPlaces: getTableStructure(newData.attentionPlaces),
+          attentionPoints: getTableStructure(newData.attentionPoints),
+          users: getTableStructure(newData.users)
+        }
+
+        setMainTabs(tabs)
+        setLoading(false)
       }
 
-      setMainTabs(tabs)
-      setLoading(false)
+      if (status === EXCEPTION_STATUS) {
+        toast(translation('load.responses.text.exception'), { type: 'error' })
+      }
+
+      if (status === ERROR_STATUS) {
+        toast(translation('load.responses.text.error'), { type: 'warning' })
+      }
+
+      if (status === UNAUTHORIZED_STATUS) {
+        toast(translation('load.responses.text.unauthorized'), {
+          type: 'info',
+          onClose: handleCloseSesion
+        })
+      }
     }
 
     loadProviderData()
@@ -68,13 +101,13 @@ const ProviderModify = () => {
   return (
     <Container title={translation('title')} breadcrumb={breadcrumb}>
       {loading ? (
-        <Card>
+        <Card radius="sm">
           <CardBody>
             <Spinner color="black" />
           </CardBody>
         </Card>
       ) : (
-        <Tabs variant="bordered" aria-label="Tabs">
+        <Tabs variant="bordered" aria-label="Tabs" size={isSmall ? 'sm' : 'md'}>
           <Tab key="provider" title={translation('tabs.provider')}>
             <Card radius="sm">
               <CardBody className="flex-col flex-wrap gap-2">

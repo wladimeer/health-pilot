@@ -1,29 +1,29 @@
 {
-    "title": "Modificación Prestador",
-    "breadcrumb": {
-      "home": "Administración",
-      "first": "Mantenedores",
-      "second": "Prestadores",
-      "current": "Modificación Prestador"
-    },
-    "tabs": {
-      "provider": "Prestador",
-      "branchOffices": "Sucursales",
-      "attentionPlaces": "Lugares de Atención",
-      "attentionPoints": "Puntos de Atención",
-      "users": "Usuarios"
-    },
-    "select": {
-      "elementQuantity": "Selecciona Cantidad de Elementos",
-      "holding": "Mantenedor"
-    },
-    "inputs": {
-      "identification": "Identificación",
-      "name": "Nombre",
-      "subdomain": "Subdominio",
-      "country": "País"
-    },
-    "table": {
+  "title": "Modificación Prestador",
+  "breadcrumb": {
+    "home": "Administración",
+    "first": "Mantenedores",
+    "second": "Prestadores",
+    "current": "Modificación Prestador"
+  },
+  "tabs": {
+    "provider": "Prestador",
+    "branchOffices": "Sucursales",
+    "attentionPlaces": "Lugares de Atención",
+    "attentionPoints": "Puntos de Atención",
+    "users": "Usuarios"
+  },
+  "select": {
+    "elementQuantity": "Selecciona Cantidad de Elementos",
+    "holding": "Mantenedor"
+  },
+  "inputs": {
+    "identification": "Identificación",
+    "name": "Nombre",
+    "subdomain": "Subdominio",
+    "country": "País"
+  },
+  "table": {
     "columns": {
       "branchOfficeId": "ID",
       "branchOfficeName": "Nombre",
@@ -55,6 +55,16 @@
       "viewList": "Ver Lista",
       "modify": "Modificar"
     },
-    "noDataMessage": "No se obtuvieron datos :( :("
+    "noDataMessage": "No se obtuvieron datos :("
+  },
+  "load": {
+    "responses": {
+      "text": {
+        "success": "Obtención de datos exitosa",
+        "exception": "Se produjo un error al intentar obtener los datos del prestador",
+        "error": "No es posible obtener al prestador y sus asociaciones",
+        "unauthorized": "La sesión caducó, por lo que será redirigido al inicio de sesión"
+      }
+    }
   }
-  }
+}

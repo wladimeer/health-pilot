@@ -14,7 +14,7 @@ const Admin = () => {
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-5 select-none">
         {submenus.map(({ key, path, title, icon, description, redirect }) => (
           <div
-            className="rounded-md overflow-hidden p-3 group/card transition duration-300 bg-sky-100 hover:bg-sky-200"
+            className="rounded-lg overflow-hidden p-3 group/card transition duration-300 bg-sky-100 hover:bg-sky-200"
             key={key}
           >
             <div className="flex justify-between items-center font-bold text-xl">

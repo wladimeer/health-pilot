@@ -76,7 +76,7 @@ const Dashboard = ({ socket, isConnected }) => {
       <Login isOpen={isOpen} onOpenChange={onOpenChange} />
 
       {isLoading ? (
-        <Card>
+        <Card radius="sm">
           <CardBody>
             <Spinner color="black" />
           </CardBody>
@@ -84,7 +84,7 @@ const Dashboard = ({ socket, isConnected }) => {
       ) : mainCard.length > 0 ? (
         <div className="flex flex-wrap gap-3">
           {mainCard.map((item, index) => (
-            <Card key={`${mainCard.key}-${index}`} className="flex flex-wrap flex-auto">
+            <Card key={`${mainCard.key}-${index}`} className="flex flex-wrap flex-auto" radius="sm">
               <CardHeader className="flex flex-wrap gap-3">
                 <Chip variant="flat" size="md" color="primary">
                   {item.serviceType.value}

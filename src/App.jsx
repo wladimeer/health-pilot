@@ -14,14 +14,15 @@ import holdingListPageES from './locales/es/holdingListPage.json'
 import deviceLisPagetES from './locales/es/deviceListPage.json'
 import dashboardPageES from './locales/es/dashboardPage.json'
 import { PROVIDER_MODIFY_PAGE_KEY } from './constants/pages'
+import { BreakpointProvider } from './contexts/Breakpoint'
 import adminPageES from './locales/es/adminListPage.json'
 import loginModalES from './locales/es/loginModal.json'
-import sidebarES from './locales/es/sidebar.json'
 import { LanguageProvider } from './contexts/Language'
 import { SidebarProvider } from './contexts/Sidebar'
 import { SIDEBAR_KEY } from './constants/component'
 import { NextUIProvider } from '@nextui-org/react'
 import { SocketProvider } from './contexts/Socket'
+import sidebarES from './locales/es/sidebar.json'
 import { AuthProvider } from './contexts/Auth'
 import AppRouter from './routers/AppRouter'
 import './App.css'
@@ -47,15 +48,17 @@ const App = () => {
   return (
     <NextUIProvider>
       <I18nextProvider i18n={i18n}>
-        <LanguageProvider>
-          <SidebarProvider>
-            <SocketProvider>
-              <AuthProvider>
-                <AppRouter />
-              </AuthProvider>
-            </SocketProvider>
-          </SidebarProvider>
-        </LanguageProvider>
+        <BreakpointProvider>
+          <LanguageProvider>
+            <SidebarProvider>
+              <SocketProvider>
+                <AuthProvider>
+                  <AppRouter />
+                </AuthProvider>
+              </SocketProvider>
+            </SidebarProvider>
+          </LanguageProvider>
+        </BreakpointProvider>
       </I18nextProvider>
     </NextUIProvider>
   )

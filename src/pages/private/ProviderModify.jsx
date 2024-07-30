@@ -12,16 +12,18 @@ import { PROVIDER_LIST_PAGE_KEY } from '../../constants/pages'
 import { findProviderById } from '../../services/intermediary'
 import { DASHBOARD_PAGE_PATH } from '../../constants/paths'
 import { Card, CardBody, Spinner } from '@nextui-org/react'
+import { useBreakpoint } from '../../contexts/Breakpoint'
 import DataTable from '../../components/DataTable'
 import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
 import { useAuth } from '../../contexts/Auth'
+import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 const ProviderModify = () => {
   const navigate = useNavigate()
   const { providerId } = useParams()
   const { updateUserData } = useAuth()
+  const { isSmall } = useBreakpoint()
 
   const [translation] = useTranslation(PROVIDER_MODIFY_PAGE_KEY)
 
@@ -99,13 +101,13 @@ const ProviderModify = () => {
   return (
     <Container title={translation('title')} breadcrumb={breadcrumb}>
       {loading ? (
-        <Card>
+        <Card radius="sm">
           <CardBody>
             <Spinner color="black" />
           </CardBody>
         </Card>
       ) : (
-        <Tabs variant="bordered" aria-label="Tabs">
+        <Tabs variant="bordered" aria-label="Tabs" size={isSmall ? 'sm' : 'md'}>
           <Tab key="provider" title={translation('tabs.provider')}>
             <Card radius="sm">
               <CardBody className="flex-col flex-wrap gap-2">

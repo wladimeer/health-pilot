@@ -16,7 +16,7 @@ const Container = ({ title, breadcrumb, children, breadcrumbButton = null }) => 
 
       <div
         data-testid="container-content"
-        className="p-5 ring-2 ring-blue-500/50 rounded font-fira-sans-condensed"
+        className="p-2 md:p-5 ring-2 ring-blue-500/50 rounded font-fira-sans-condensed"
       >
         <section className="flex items-center justify-between mb-3">
           <h1 data-testid="container-title" className="underline underline-offset-4 text-lg">

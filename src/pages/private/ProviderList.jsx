@@ -83,7 +83,7 @@ const ProviderList = () => {
   return (
     <Container title={translation('title')} breadcrumb={breadcrumb}>
       {isLoading ? (
-        <Card>
+        <Card radius="sm">
           <CardBody>
             <Spinner color="black" />
           </CardBody>
